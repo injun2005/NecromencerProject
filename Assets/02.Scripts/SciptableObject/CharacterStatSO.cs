@@ -9,6 +9,5 @@ public class CharacterStatSO : ScriptableObject
     public int maxMP;
     public int AD;
     public int speed;
-    public int defense;
-    public int level;
+    public int defence;
 }
