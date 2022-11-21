@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageDataSO : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[CreateAssetMenu(menuName = "SO/Stat/CharacterStatData")]
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class StageDataSO : ScriptableObject
+{
+    public int MosterData; //몬스터 데이터
+    public int Level; //레벨
+    public int RandomLevelOffset; // 렌덤 레벨 수치
+    public int Compensation; // 보상
+    public int MpHealOffset; // 마나 회복 수치
 }
