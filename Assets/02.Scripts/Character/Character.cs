@@ -28,30 +28,41 @@ public class Character : MonoBehaviour
     public int Speed { get { return speed; } }
     public int Defence { get { return defence; } }
     public int Level { get { return level; } }
+    public string characterName { get { return statData.characterName; } }
     #endregion
     private int currentSkillIdx;
     private int currentActionIdx;
-    //public List<Skill> skillList;
-    public bool isTeam = false;
+    private Character target;
 
-    public virtual void StatSetting()
+    public List<Skill> skillList;
+    public bool isTeam = false;
+    public bool isDead = false;
+    public virtual void Init(int level)
     {
         //레벨에 따라 증가하는 수식이 있어야함
-        mp = statData.maxMP; 
+        mp = statData.maxMP + statData.upMP  *level;
+        hp = statData.maxHP + statData.upHP * level;
+        ad = statData.AD + statData.upAD * level;
+        speed = statData.speed * statData.upSpeed * level;
+        defence = statData.defence * statData.upDefence * level;
+    }
+
+    public virtual void Release()
+    {
+        mp = statData.maxMP;
         hp = statData.maxHP;
         ad = statData.AD;
         speed = statData.speed;
         defence = statData.defence;
     }
-
-    public void CheckActionIdx(Character actionTarget)
+    private void CheckActionIdx()
     {
-        switch(currentActionIdx) 
+        switch (currentActionIdx)
         {
             case 0:
                 break;
             case 1:
-                Attack(actionTarget, ad);
+                Attack(ad);
                 break;
             case 2:
                 PlaySkill();
@@ -59,7 +70,12 @@ public class Character : MonoBehaviour
         }
     }
 
-    public virtual void Attack(Character target, int damage)
+    public virtual void DoBehaviour()
+    {
+        CheckActionIdx();
+    }
+
+    public virtual void Attack(int damage)
     {
 
     }
@@ -69,9 +85,27 @@ public class Character : MonoBehaviour
         //currentSkillIdx 기반으로 움직임
     }
 
-    public virtual void PlayDefecne() 
-    { 
-    
+    public virtual void PlayDefecne()
+    {
+
     }
 
+    public virtual void Damaged(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Dead();
+        }
+    }
+
+    public virtual void Dead()
+    {
+        isDead = true;
+    }
+
+    public virtual void MakedTeam()
+    {
+        isTeam = true;
+    }
 }
