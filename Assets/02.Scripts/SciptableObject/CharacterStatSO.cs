@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="SO/Stat/CharacterStatData")]
 public class CharacterStatSO : ScriptableObject
 {
+    public string MonsterName;
     public int maxHP;
     public int maxMP;
     public int AD;
