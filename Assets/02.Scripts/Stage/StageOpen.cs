@@ -6,18 +6,11 @@ using UnityEngine.SceneManagement;
 public class StageOpen : MonoBehaviour
 {
     public GameObject[] StartImage;
-    public int[] MapIdx;
+    public RandomStage Rs;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Rs = GetComponent<RandomStage>();
     }
 
     public void start1()
@@ -61,9 +54,25 @@ public class StageOpen : MonoBehaviour
         StartImage[3].SetActive(false);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void SceneStart()
     {
-        MapIdx[0] = 0;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Main");
     }
 }

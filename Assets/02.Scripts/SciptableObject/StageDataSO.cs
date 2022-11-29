@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/Stat/CharacterStatData")]
+[CreateAssetMenu(menuName = "SO/Stat/StageDataSO")]
 
 public class StageDataSO : ScriptableObject
 {

@@ -506,7 +506,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e4b0c23b09455e14d8094cd90dc65c72, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -820,7 +820,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407931801}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -831,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.6, y: 7.46}
+  m_AnchoredPosition: {x: 12.6, y: 7.4600005}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407931803
@@ -1337,7 +1337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC778\uC900\uC758 \uC0B0 "
+  m_text: "\uC778\uC900\uC758 \uD3C9\uC6D0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acbe408fc6853cb41b2cec9501a26ed5, type: 2}
   m_sharedMaterial: {fileID: -6674380476140198756, guid: acbe408fc6853cb41b2cec9501a26ed5, type: 2}
@@ -1881,7 +1881,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880805535}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1892,7 +1892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.14, y: -7.01}
+  m_AnchoredPosition: {x: 0.13999939, y: -7.0099974}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &880805537
@@ -2227,7 +2227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC778\uC900\uC758 \uC0B0 "
+  m_text: "\uC778\uC900\uD55C \uBB3C\uAC00"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acbe408fc6853cb41b2cec9501a26ed5, type: 2}
   m_sharedMaterial: {fileID: -6674380476140198756, guid: acbe408fc6853cb41b2cec9501a26ed5, type: 2}
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 853bf5e52552bd641b319ac8b3abce73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2672,7 +2672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1144071554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2125420567}
+        m_TargetAssemblyTypeName: StageOpen, Assembly-CSharp
+        m_MethodName: SceneStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1144071554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2824,7 +2836,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2672ea99bbbeabc419f8787b771149ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3640,7 +3652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC778\uC900\uC758 \uC0B0 "
+  m_text: "\uC778\uC900\uD55C "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: acbe408fc6853cb41b2cec9501a26ed5, type: 2}
   m_sharedMaterial: {fileID: -6674380476140198756, guid: acbe408fc6853cb41b2cec9501a26ed5, type: 2}
@@ -4371,7 +4383,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 59eebf19b652dc743b5b496d9efce914, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4562,7 +4574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.9}
+  m_AnchoredPosition: {x: 0, y: -7.6}
   m_SizeDelta: {x: 15, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1804153461
@@ -4608,7 +4620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804153462}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2125420567}
+        m_TargetAssemblyTypeName: StageOpen, Assembly-CSharp
+        m_MethodName: SceneStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1804153462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5169,7 +5193,7 @@ MonoBehaviour:
   - {fileID: 309363105}
   - {fileID: 1146304141}
   - {fileID: 1587721784}
-  MapIdx: 
+  Rs: {fileID: 0}
 --- !u!4 &2125420568
 Transform:
   m_ObjectHideFlags: 0
