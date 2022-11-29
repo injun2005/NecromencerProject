@@ -31,12 +31,15 @@ public class Character : MonoBehaviour
     public string characterName { get { return statData.characterName; } }
     #endregion
     private int currentSkillIdx;
-    private int currentActionIdx;
+    private ECharacterAction currentActionIdx;
     private Character target;
 
     public List<Skill> skillList;
-    public bool isTeam = false;
-    public bool isDead = false;
+   
+    [HideInInspector]public bool isTeam = false;
+    [HideInInspector] public bool isDead = false;
+    [HideInInspector] public bool isAction = false;
+
     public virtual void Init(int level)
     {
         //레벨에 따라 증가하는 수식이 있어야함
@@ -61,15 +64,28 @@ public class Character : MonoBehaviour
         {
             case 0:
                 break;
-            case 1:
+            case ECharacterAction.Attack:
                 Attack(ad);
                 break;
-            case 2:
+            case ECharacterAction.Skill:
                 PlaySkill();
+                break;
+            case ECharacterAction.Defence:
                 break;
         }
     }
 
+    public void SetActionIdx(ECharacterAction idx)
+    {
+        isAction = true;
+        currentActionIdx = idx;
+    }
+
+    public void SetSkillIdx(ESkillKeys skillKey)
+    {
+        isAction = true;
+        currentSkillIdx = (int)skillKey;
+    }
     public virtual void DoBehaviour()
     {
         CheckActionIdx();
@@ -77,17 +93,24 @@ public class Character : MonoBehaviour
 
     public virtual void Attack(int damage)
     {
-
+        isAction = false;
     }
 
     public virtual void PlaySkill()
     {
-        //currentSkillIdx 기반으로 움직임
+        foreach(Skill skill in skillList)
+        {
+            if((int)skill.skillKey == currentSkillIdx)
+            {
+                skill.UseSkill(target);
+            }
+        }
+        isAction = false;
     }
 
     public virtual void PlayDefecne()
     {
-
+        isAction = false;
     }
 
     public virtual void Damaged(int damage)

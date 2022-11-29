@@ -25,7 +25,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private Player currentPlayer;
     private Queue<Character> characterQueue = new Queue<Character>(); 
     private bool isTurn = false;
-
+    public bool IsTurn { get { return isTurn; } }
     public void Awake()
     {
         CreatePool();
@@ -75,7 +75,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void BattleStart()
     {
-        
         if(currentPlayer == null)
         {
             Debug.Log("Player is Null");
@@ -122,7 +121,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void EndBattle()
     {
-
+        
     }
 
     
