@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
+
+[Serializable]
+public class StageArea
+{
+}
+
 
 public class StageManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    List<StageDataSO> Stages = new List<StageDataSO>();
+    private GameObject StagesPrefabs;
+
+
+    //public List<StageArea> areaList;
+
+    //private Dictionary<EStageArea, StageArea> E;
+
+
+    void Awake()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
+
 }
