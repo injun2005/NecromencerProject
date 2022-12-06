@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,7 +44,18 @@ public class Character : MonoBehaviour
     public virtual void Init(int level)
     {
         //레벨에 따라 증가하는 수식이 있어야함
-        mp = statData.maxMP + statData.upMP  *level;
+
+        SettingStat(level);
+
+        foreach(Skill skill in skillList)
+        {
+            skill.Init(this);
+        }
+    }
+
+    private void SettingStat(int level)
+    {
+        mp = statData.maxMP + statData.upMP * level;
         hp = statData.maxHP + statData.upHP * level;
         ad = statData.AD + statData.upAD * level;
         speed = statData.speed * statData.upSpeed * level;

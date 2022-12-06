@@ -33,6 +33,11 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         EventManager.StartListening(EEvent.StartTurn, StartTurn);
         EventManager.StartListening(EEvent.EndTrun, EndTurn);
     }
+    private void Start()
+    {
+        BattleStart();
+    }
+
     public void AddNewPlayer(Player player)
     {
         currentPlayer = player;
@@ -75,6 +80,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void BattleStart()
     {
+        Debug.Log("StartBattle");
         if(currentPlayer == null)
         {
             Debug.Log("Player is Null");
@@ -83,11 +89,16 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         
         foreach(Character character in currentPlayer.teamCharacters)
         {
+            Debug.Log($"{character.characterName} is add activeChar");
             allActiveCharacters.Add(character);
         }
 
         //스테이지에서 적정보를 읽어온다음 여기에 넣어줘야함
-        
+
+
+        EventManager.TriggerEvent(EEvent.StartTurn);
+
+
 
     }
 
@@ -96,7 +107,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         isTurn = true;
         if(currentPlayer.isDead)
         {
-           
+            currentPlayer.StartTurn();
         }
 
 
@@ -107,6 +118,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         isTurn = false;
 
         var list = allActiveCharacters.OrderByDescending(x => x.Speed).ToList();
+
         Character characterLast = null;
         foreach (Character character in list)
         {

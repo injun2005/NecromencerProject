@@ -12,7 +12,6 @@ public class SelectChacterUI : MonoBehaviour
 
     private Character target;
 
-
     public void Init(Character character)
     {
         target = character;
@@ -23,7 +22,10 @@ public class SelectChacterUI : MonoBehaviour
     
     public void SelectChacter()
     {
-        Player.OnSelectTeam(target);  
+        if (target.isTeam)
+            Player.OnSelectTeam(target);
+        else
+            return;
     }
 
 }

@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
     public List<Character> teamCharacters = new List<Character>();
     [SerializeField]
     public List<SelectChacterUI> selectTeamCharacterUIList = new List<SelectChacterUI>();
-    
+    [SerializeField]
+    public List<Transform> teamUnitPos = new List<Transform>();
     public bool isDead;
     private int completeSelectCnt = 0;
     private Character currentActionChar;
@@ -37,6 +38,8 @@ public class Player : MonoBehaviour
         OnSelectTeam += SelectTeamActionChar;
         OnSelectSkill += SelectSkillIdx;
         OnSelectAction += SelectActionIdx;
+
+        Init();
     }
     private void Update()
     {
@@ -106,6 +109,7 @@ public class Player : MonoBehaviour
     
     public void SelectTeamActionChar(Character team)
     {
+        Debug.Log($"SelectTeam {team.characterName}");
         currentActionChar = team;
         ShowActionPanel();
     }
@@ -125,8 +129,6 @@ public class Player : MonoBehaviour
     {
         currentActionChar.SetSkillIdx(skillKey);
     }
-
-
 
 
 }
