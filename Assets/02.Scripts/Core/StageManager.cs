@@ -7,34 +7,28 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class StageArea
 {
-    List<StageDataSO> EAreaData;
 }
 
 
 public class StageManager : MonoBehaviour
 {
-    public int stage = 1;
+    [SerializeField]
+    List<StageDataSO> Stages = new List<StageDataSO>();
+    private GameObject StagesPrefabs;
 
-    public List<StageArea> areaList;
 
-    private Dictionary<EStageArea, StageArea> E;
+    //public List<StageArea> areaList;
 
-    private void Update()
+    //private Dictionary<EStageArea, StageArea> E;
+
+
+    void Awake()
     {
-        NextStage();
+
     }
 
 
-    public void NextStage()
-    {
-        if(Input.GetKeyDown(KeyCode.Q))//Monster == 0))
-        {
-            stage++;
-            if(stage == 2)
-            {
 
-            }
-        }
-    }
+
 
 }

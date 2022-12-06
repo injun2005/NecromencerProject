@@ -5,71 +5,82 @@ using UnityEngine.SceneManagement;
 
 public class StageOpen : MonoBehaviour
 {
-    public GameObject[] StartImage;
-    public RandomStage Rs;
+    public GameObject StartImage;
+    public int stage = 1;
+    public GameObject nextStage;
+    private List<StageDataSO> SD;
+    public int stageIndex = 0;
 
-    private void Start()
+    private void Update()
     {
-        Rs = GetComponent<RandomStage>();
+        
     }
 
-    public void start1()
+    public void OnTriggerEnter(Collider other)
     {
-        StartImage[0].SetActive(true);
+        if(stage == 1)
+        {
+            StartImage.SetActive(true);
+        }
+        else if (stage == 2)
+        {
+            StartImage.SetActive(true);
+        }
+        else if (stage == 3)
+        {
+            StartImage.SetActive(true);
+        }
+        else if (stage == 4)
+        {
+            StartImage.SetActive(true);
+        }
     }
 
-    public void Exit1()
+    public void OnTriggerExit(Collider other)
     {
-        StartImage[0].SetActive(false);
+        StartImage.SetActive(false);
+        Debug.Log("DD");
     }
 
-    public void start2()
+    public void NextStage()
     {
-        StartImage[1].SetActive(true);
+        if (stage == 1)
+        {
+            stageIndex++;
+            if (SD[stageIndex].MosterGroupData.Count == 0)
+            {
+                stage++;
+                nextStage.SetActive(true);
+            }
+        }
+        else if (stage == 2)
+        {
+            stageIndex++;
+            if (SD[stageIndex].MosterGroupData.Count == 0)
+            {
+                stage++;
+                nextStage.SetActive(true);
+            }
+        }
+        else if (stage == 3)
+        {
+            stageIndex++;
+            if (SD[stageIndex].MosterGroupData.Count == 0)
+            {
+                stage++;
+                nextStage.SetActive(true);
+            }
+        }
+        else if (stage == 4)
+        {
+            stageIndex++;
+            if (SD[stageIndex].MosterGroupData.Count == 0)
+            {
+                stage++;
+                nextStage.SetActive(true);
+            }
+        }
     }
-
-    public void Exit2()
-    {
-        StartImage[1].SetActive(false);
-    }
-
-    public void start3()
-    {
-        StartImage[2].SetActive(true);
-    }
-
-    public void Exit3()
-    {
-        StartImage[2].SetActive(false);
-    }
-
-
-    public void start4()
-    {
-        StartImage[3].SetActive(true);
-    }
-
-    public void Exit4()
-    {
-        StartImage[3].SetActive(false);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void SceneStart()
     {
