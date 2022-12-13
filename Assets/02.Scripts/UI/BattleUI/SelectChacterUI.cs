@@ -11,21 +11,21 @@ public class SelectChacterUI : MonoBehaviour
     private Button selectBtn;
 
     private Character target;
-
+    private Player player { get { return GameManager.Inst.CurrentPlayer; } }
+    
     public void Init(Character character)
     {
         target = character;
         characterNameText.text = character.characterName;
-        selectBtn.onClick.AddListener(SelectChacter);
-
+        selectBtn.onClick?.AddListener(SelectChacter);
     }
     
     public void SelectChacter()
     {
         if (target.isTeam)
-            Player.OnSelectTeam(target);
+            player.OnSelectTeam?.Invoke(target);
         else
-            return;
+            player.OnSelectTarget?.Invoke(target);
     }
 
 }

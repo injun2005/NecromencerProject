@@ -10,13 +10,11 @@ public class StageArea
 }
 
 
-public class StageManager : MonoBehaviour
+public class StageManager : MonoSingleton<StageManager>
 {
     [SerializeField]
     List<StageDataSO> Stages = new List<StageDataSO>();
     private GameObject StagesPrefabs;
-
-
     //public List<StageArea> areaList;
 
     //private Dictionary<EStageArea, StageArea> E;

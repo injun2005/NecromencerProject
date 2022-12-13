@@ -278,13 +278,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29676dfa2f4d51842966a42d402f99ee, type: 2}
   - {fileID: 11400000, guid: efaac302dcd195246a87aa92612e58c6, type: 2}
   - {fileID: 11400000, guid: 653ead63b6553444fbc6e0f132105101, type: 2}
-  stage: 1
-  nextStage:
-  - {fileID: 1526036027}
-  - {fileID: 695462023}
-  - {fileID: 1187540766}
-  - {fileID: 1250184183}
-  stageIndex: 0
 --- !u!4 &136988780
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,6 +1077,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImage: {fileID: 2131063643}
+  stage: 1
+  nextStage: {fileID: 0}
+  stageIndex: 0
 --- !u!65 &695462027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1826,7 +1822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1187540767
 Transform:
   m_ObjectHideFlags: 0
@@ -1920,6 +1916,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImage: {fileID: 1098454765}
+  stage: 1
+  nextStage: {fileID: 0}
+  stageIndex: 0
 --- !u!54 &1187540772
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2175,6 +2174,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImage: {fileID: 74605411}
+  stage: 1
+  nextStage: {fileID: 0}
+  stageIndex: 0
 --- !u!65 &1250184187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2406,6 +2408,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartImage: {fileID: 316511584}
+  stage: 1
+  nextStage: {fileID: 0}
+  stageIndex: 0
 --- !u!65 &1526036031
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -16,19 +16,31 @@ public class SkillPanel : MonoBehaviour
     [SerializeField]
     private Button skillBtn;
 
+    private Player player;
+    private Skill skill;
+
     private ESkillKeys currentSkillkey;
+    
+    private void Awake()
+    {
+        skillBtn.onClick.AddListener(OnSelectSkill);
+    }
     public void Init(Skill skill)
     {
         skillName.text = skill.skillKey.ToString();
         limitMPText.text = "MP: " + skill.limitMP.ToString();
         skillInfoText.text = skill.skillInfo;
         currentSkillkey = skill.skillKey;
-        skillBtn.onClick.AddListener(OnSelectSkill);
+        this.skill = skill;
+        player ??= GameManager.Inst.CurrentPlayer;
     }
 
     private void OnSelectSkill()
     {
-        Player.OnSelectSkill.Invoke(currentSkillkey);
+        if (skill.isCanUse)
+        {
+            player.OnSelectSkill.Invoke(currentSkillkey);
+        }
     }
 
     public void Release()
@@ -36,5 +48,6 @@ public class SkillPanel : MonoBehaviour
         skillName.text = "";
         limitMPText.text = "";
         skillInfoText.text = "";
+        skill = null;
     }
 }

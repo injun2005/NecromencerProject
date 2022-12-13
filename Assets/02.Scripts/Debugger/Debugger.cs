@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Debugger : MonoBehaviour
 {
-    // Update is called once per frame
+    [SerializeField]
+    private Character teamCharacter;
+
+    private void Awake()
+    {
+        teamCharacter.Init(3);
+    }
+
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q)){
+        if(Input.GetKeyDown(KeyCode.A)){
+            BattleSystem.Inst.BattleRelease();
+            GameManager.Inst.CurrentPlayer.AddTeam(teamCharacter);
             BattleSystem.Inst.BattleStart();
         }       
+
     }
 }
