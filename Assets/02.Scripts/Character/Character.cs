@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,50 +29,118 @@ public class Character : MonoBehaviour
     public int Speed { get { return speed; } }
     public int Defence { get { return defence; } }
     public int Level { get { return level; } }
+    public string characterName { get { return statData.characterName; } }
     #endregion
     private int currentSkillIdx;
-    private int currentActionIdx;
-    //public List<Skill> skillList;
-    public bool isTeam = false;
+    private ECharacterAction currentActionIdx;
+    private Character target;
 
-    public virtual void StatSetting()
+    public List<Skill> skillList;
+   
+    [HideInInspector]public bool isTeam = false;
+    [HideInInspector] public bool isDead = false;
+    [HideInInspector] public bool isAction = false;
+
+    public virtual void Init(int level)
     {
         //레벨에 따라 증가하는 수식이 있어야함
-        mp = statData.maxMP; 
+
+        SettingStat(level);
+
+        foreach(Skill skill in skillList)
+        {
+            skill.Init(this);
+        }
+    }
+
+    private void SettingStat(int level)
+    {
+        mp = statData.maxMP + statData.upMP * level;
+        hp = statData.maxHP + statData.upHP * level;
+        ad = statData.AD + statData.upAD * level;
+        speed = statData.speed * statData.upSpeed * level;
+        defence = statData.defence * statData.upDefence * level;
+    }
+
+    public virtual void Release()
+    {
+        mp = statData.maxMP;
         hp = statData.maxHP;
         ad = statData.AD;
         speed = statData.speed;
         defence = statData.defence;
     }
-
-    public void CheckActionIdx(Character actionTarget)
+    private void CheckActionIdx()
     {
-        switch(currentActionIdx) 
+        switch (currentActionIdx)
         {
             case 0:
                 break;
-            case 1:
-                Attack(actionTarget, ad);
+            case ECharacterAction.Attack:
+                Attack(ad);
                 break;
-            case 2:
+            case ECharacterAction.Skill:
                 PlaySkill();
+                break;
+            case ECharacterAction.Defence:
                 break;
         }
     }
 
-    public virtual void Attack(Character target, int damage)
+    public void SetActionIdx(ECharacterAction idx)
     {
+        isAction = true;
+        currentActionIdx = idx;
+    }
 
+    public void SetSkillIdx(ESkillKeys skillKey)
+    {
+        isAction = true;
+        currentSkillIdx = (int)skillKey;
+    }
+    public virtual void DoBehaviour()
+    {
+        CheckActionIdx();
+    }
+
+    public virtual void Attack(int damage)
+    {
+        isAction = false;
     }
 
     public virtual void PlaySkill()
     {
-        //currentSkillIdx 기반으로 움직임
+        foreach(Skill skill in skillList)
+        {
+            if((int)skill.skillKey == currentSkillIdx)
+            {
+                skill.UseSkill(target);
+            }
+        }
+        isAction = false;
     }
 
-    public virtual void PlayDefecne() 
-    { 
-    
+    public virtual void PlayDefecne()
+    {
+        isAction = false;
     }
 
+    public virtual void Damaged(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            Dead();
+        }
+    }
+
+    public virtual void Dead()
+    {
+        isDead = true;
+    }
+
+    public virtual void MakedTeam()
+    {
+        isTeam = true;
+    }
 }
