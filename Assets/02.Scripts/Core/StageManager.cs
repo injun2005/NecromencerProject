@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 [Serializable]
 public class StageArea
 {
+
 }
 
 
@@ -15,6 +16,7 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     List<StageDataSO> Stages = new List<StageDataSO>();
     private GameObject StagesPrefabs;
+
 
 
     //public List<StageArea> areaList;
@@ -46,7 +48,7 @@ public class StageManager : MonoBehaviour
 
     public void SceneStart()
     {
-        SceneManager.LoadScene("Main");
+        //SceneManager.LoadScene("Main");
     }
 
     public void Cheat()
