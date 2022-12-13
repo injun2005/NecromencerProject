@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: ed32b5ff8f9605343a2e657dac542b92
   m_SerializeEntries:
-  - m_GUID: 754bb4435dac9094aac59e14ff787686
-    m_Address: Assets/01.Scenes/Main.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 8573c391fc7e23147a7b80c6df37c109
     m_Address: Assets/03.Prefabs/Map/Map (1).prefab
     m_ReadOnly: 0

@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
         OnSelectSkill += SelectSkillIdx;
         OnSelectAction += SelectActionIdx;
         OnSelectTarget += SelectTarget;
+
         Init();
     }
     private void Update()
