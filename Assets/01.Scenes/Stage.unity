@@ -205,7 +205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 74605414}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &74605414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,11 +292,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 653ead63b6553444fbc6e0f132105101, type: 2}
   stage: 1
   nextStage:
+  - {fileID: 1250184183}
   - {fileID: 1526036027}
   - {fileID: 695462023}
   - {fileID: 1187540766}
-  - {fileID: 1250184183}
-  stageIndex: 0
 --- !u!4 &136988780
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,7 +1043,7 @@ GameObject:
   - component: {fileID: 695462026}
   - component: {fileID: 695462025}
   m_Layer: 0
-  m_Name: Stage
+  m_Name: Stage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1821,7 +1832,7 @@ GameObject:
   - component: {fileID: 1187540771}
   - component: {fileID: 1187540772}
   m_Layer: 0
-  m_Name: Stage
+  m_Name: Stage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2123,7 +2134,7 @@ GameObject:
   - component: {fileID: 1250184186}
   - component: {fileID: 1250184185}
   m_Layer: 0
-  m_Name: Stage
+  m_Name: Stage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2354,7 +2365,7 @@ GameObject:
   - component: {fileID: 1526036030}
   - component: {fileID: 1526036029}
   m_Layer: 0
-  m_Name: Stage
+  m_Name: Stage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
