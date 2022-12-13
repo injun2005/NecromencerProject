@@ -8,6 +8,8 @@ public class ActionPanel : MonoBehaviour
     private ECharacterAction actionType;
 
     private Button selectBtn;
+    private Player player { get { return GameManager.Inst.CurrentPlayer; } }
+
 
     private void Awake()
     {
@@ -17,6 +19,6 @@ public class ActionPanel : MonoBehaviour
 
     private void SelectActionType()
     {
-        Player.OnSelectAction.Invoke(actionType);
+        player.OnSelectAction?.Invoke(actionType);
     }
 }
