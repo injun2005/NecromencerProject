@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Random = UnityEngine.Random;
 
 [Serializable]
 public struct monsterPoolData
@@ -23,6 +24,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<CharacterBattleUIPanel> teamBattleUIList = new List<CharacterBattleUIPanel>();
     [SerializeField]
     private List<CharacterBattleUIPanel> enemyBattleUIList = new List<CharacterBattleUIPanel>();
+    [SerializeField]
+    private AISystem aiSystem;
 
     private List<Character> poolCharacters = new List<Character>();
     private List<Character> teamCharacters = new List<Character>();
@@ -30,7 +33,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<Character> enemyCharacters = new List<Character>();
     private Player currentPlayer { get { return GameManager.Inst.CurrentPlayer; } }
     private List<Transform> enemyTrms = new List<Transform>(); //적 위치 맞춰주기
-    private Queue<Character> characterQueue = new Queue<Character>(); 
+    private Queue<Character> characterQueue = new Queue<Character>();
 
 
 
@@ -68,7 +71,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void Push(Character character)
     {
-        if(character.isTeam) 
+        if (character.isTeam)
         {
             teamCharacters.Remove(character);
         }
@@ -81,7 +84,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     private void CreatePool()
     {
-        for(int i = 0; i < monsterPools.Count; i++)
+        for (int i = 0; i < monsterPools.Count; i++)
         {
             for (int j = 0; j < monsterPools[i].cnt; j++)
             {
@@ -96,33 +99,33 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void BattleStart()
     {
         Debug.Log("StartBattle");
-        if(currentPlayer == null)
+        if (currentPlayer == null)
         {
             Debug.Log("Player is Null");
             return;
         }
         //스테이지에서 현재 전투 할 적 정보를 읽어온다음 여기에 넣어줘야함
 
-        enemyCharacters.Add(Pop("Slime", 3)); 
+        enemyCharacters.Add(Pop("Slime", 3));
 
         for (int i = 0; i < enemyCharacters.Count; i++)
         {
             //enemyCharacters[i].transform.position = enemyTrms[i].position; 
             currentPlayer.selectTargetCharacterUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
-            
+
         }
         currentPlayer.BattleSetting();
-        for(int i = 0; i < teamCharacters.Count; i++)
+        for (int i = 0; i < teamCharacters.Count; i++)
         {
             teamBattleUIList[i].Init(teamCharacters[i]);
         }
     }
 
-    public void StartTurn(object dummyParam) 
+    public void StartTurn(object dummyParam)
     {
         isTurn = true;
-        if(!currentPlayer.isDead)
+        if (!currentPlayer.isDead)
         {
             currentPlayer.StartTurn();
         }
@@ -159,16 +162,26 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private void EndTurn(object dummyParam)
     {
         isTurn = false;
-
+        foreach (Character character in enemyCharacters)
+        {
+            if (!character.isDead)
+            {
+                aiSystem.SetCurrentCharacter(character);
+                Character target = teamCharacters[Random.Range(0, teamCharacters.Count)];
+                aiSystem.SetTarget(target);
+                aiSystem.RandomAction();
+            }
+        }
         StartCoroutine(EndTurnCorutine());
     }
 
     public void BattleCharacterDead(Character character)
     {
-        if(character.isTeam)
+        if (character.isTeam)
         {
             teamDeathCount++;
-            if(teamCharacters.Count >= teamDeathCount)
+            teamCharacters.Remove(character);
+            if (teamCharacters.Count >= teamDeathCount)
             {
                 currentPlayer.isDead = true;
             }
@@ -183,11 +196,11 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void CheckEndBattle()
     {
-        if(enemyDeathCount >= enemyCharacters.Count)
+        if (enemyDeathCount >= enemyCharacters.Count)
         {
             WinBattle();
         }
-        else if(teamDeathCount >= teamCharacters.Count)
+        else if (teamDeathCount >= teamCharacters.Count)
         {
             GameOver();
         }
@@ -225,5 +238,5 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         //만약 몬스터 그룹카운트가 남지 않았다면 StageClear 그렇지 안다면 다음 배틀로 
     }
 
-    
+
 }

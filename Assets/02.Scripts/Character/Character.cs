@@ -10,6 +10,7 @@ public enum ECharacterAction
     Attack,
     Skill,
     Defence,
+    Count,
 }
 public class Character : MonoBehaviour
 {
@@ -99,16 +100,15 @@ public class Character : MonoBehaviour
 
     public void SetActionIdx(ECharacterAction idx)
     {
-        
         currentActionIdx = idx;
     }
+
     public void SetTarget(Character target)
     {
         this.target = target;
     }
     public void SetSkillIdx(ESkillKeys skillKey)
-    {
-        
+    {   
         currentSkillIdx = (int)skillKey;
     }
     public virtual void DoBehaviour()

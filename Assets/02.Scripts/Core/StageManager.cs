@@ -14,7 +14,11 @@ public class StageArea
 public class StageManager : MonoSingleton<StageManager>
 {
     [SerializeField]
-    List<StageDataSO> Stages = new List<StageDataSO>();
+    private List<StageDataSO> stages = new List<StageDataSO>();
+
+    public List<StageDataSO>StageList { get { return stages; } }
+
+      
     private GameObject StagesPrefabs;
 
     //public List<StageArea> areaList;
@@ -33,16 +37,19 @@ public class StageManager : MonoSingleton<StageManager>
 
     public void NextStage()
     {
-        if (Stages[stage - 1].MosterGroupData.Count == 0)
+        if (stages[stage - 1].MosterGroupData.Count == 0)
         {
             stage++;
-            if(stage > Stages.Count)
+            if(stage > stages.Count)
             {
                 //GameManager.Inst.GameClear();
             }
             nextStage[stage - 1].SetActive(true);
         }
     }
+
+
+
 
     public void SceneStart()
     {
