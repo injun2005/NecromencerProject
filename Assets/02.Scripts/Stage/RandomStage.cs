@@ -7,12 +7,8 @@ public class RandomStage : MonoBehaviour
     public List<GameObject> mapList;
     int ramdomInt;
 
-    private void Start()
-    {
-        RandomMap();
-    }
 
-    void RandomMap()
+    public void RandomMap()
     {
         ramdomInt = Random.Range(0, mapList.Count);
 

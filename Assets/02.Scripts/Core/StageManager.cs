@@ -9,13 +9,23 @@ public class StageArea
 {
 
 }
-
+[Serializable]
+public struct StageMonsterPos
+{
+    public List<Transform> MonsterPos;
+}
 
 public class StageManager : MonoSingleton<StageManager>
 {
     [SerializeField]
     List<StageDataSO> Stages = new List<StageDataSO>();
-    private GameObject StagesPrefabs;
+    public GameObject StagesPrefabs;
+    [SerializeField]
+    private List<StageMonsterPos> stageMonsterPos = new List<StageMonsterPos>();
+    public GameObject Map;
+
+
+    RandomStage st;
 
     //public List<StageArea> areaList;
 
@@ -47,7 +57,12 @@ public class StageManager : MonoSingleton<StageManager>
     public void SceneStart()
     {
         //SceneManager.LoadScene("Main");
+        StagesPrefabs.SetActive(true);
+        Map.SetActive(false);
+        //st.RandomMap();
+        BattleSystem.Inst.SetStageTrm(stageMonsterPos[stage - 1].MonsterPos);
     }
+
 
     public void Cheat()
     {
