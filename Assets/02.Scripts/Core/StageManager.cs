@@ -22,7 +22,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     public List<StageDataSO>StageList { get { return stages; } }
 
-      
+    [SerializeField]
     private GameObject StagesPrefabs;
     [SerializeField]
     private List<StageMonsterPos> stageMonsterPos = new List<StageMonsterPos>();
