@@ -35,7 +35,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<Transform> enemyTrms = new List<Transform>(); //적 위치 맞춰주기
     private Queue<Character> characterQueue = new Queue<Character>();
 
-
+    private List<StageDataSO> stageDataSOs = new List<StageDataSO>();
 
     private bool isTurn = false;
     public bool IsTurn { get { return isTurn; } }
@@ -96,6 +96,12 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     }
     #endregion
 
+    public void SetStageTrm(List<Transform> transforms)
+    {
+        enemyTrms = transforms;
+    }
+
+
     public void BattleStart()
     {
         Debug.Log("StartBattle");
@@ -104,13 +110,15 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             Debug.Log("Player is Null");
             return;
         }
+
+
         //스테이지에서 현재 전투 할 적 정보를 읽어온다음 여기에 넣어줘야함
 
         enemyCharacters.Add(Pop("Slime", 3));
 
         for (int i = 0; i < enemyCharacters.Count; i++)
         {
-            //enemyCharacters[i].transform.position = enemyTrms[i].position; 
+            enemyCharacters[i].transform.position = enemyTrms[i].position;
             currentPlayer.selectTargetCharacterUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
 
@@ -234,7 +242,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void WinBattle()
     {
         EndBattle();
-        Debug.Log("승리");
+        Debug.Log("승리");   
         //만약 몬스터 그룹카운트가 남지 않았다면 StageClear 그렇지 안다면 다음 배틀로 
     }
 
