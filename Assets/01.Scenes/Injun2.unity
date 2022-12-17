@@ -5830,7 +5830,7 @@ MonoBehaviour:
   - {fileID: 2005609831581727075}
   - {fileID: 6764997456071270498}
   - {fileID: 4739857756070786350}
-  aiSystem: {fileID: 0}
+  aiSystem: {fileID: 165644659}
 --- !u!4 &943433434
 Transform:
   m_ObjectHideFlags: 0
