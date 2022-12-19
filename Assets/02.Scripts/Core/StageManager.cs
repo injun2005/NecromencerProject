@@ -60,7 +60,7 @@ public class StageManager : MonoSingleton<StageManager>
         StagesPrefabs.SetActive(true);
         Map.SetActive(false);
         //st.RandomMap();
-        BattleSystem.Inst.SetStage(stageMonsterPos[stage - 1].MonsterPos, Stages[stage - 1].MosterGroupData);
+        BattleSystem.Inst.SetStage(stageMonsterPos[stage - 1].MonsterPos, stages[stage - 1].MosterGroupData);
         BattleSystem.Inst.BattleStart();
     }
 
