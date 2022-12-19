@@ -10,7 +10,14 @@ public enum ECharacterAction
     Attack,
     Skill,
     Defence,
-    Count,
+    Count
+}
+public enum ECharacterType
+{
+    None,
+    Slime,
+
+    Count
 }
 public class Character : MonoBehaviour
 {
@@ -37,6 +44,7 @@ public class Character : MonoBehaviour
     #endregion
     private int currentSkillIdx;
     private ECharacterAction currentActionIdx;
+    public ECharacterType characterType;
     private Character target;
     public List<Skill> skillList;
    

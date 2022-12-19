@@ -51,7 +51,7 @@ public class CharacterBattleUIPanel : MonoBehaviour
         {
             mp = 0;
         }
-        mpBarImage.rectTransform.localScale = new Vector3(value, 1, 1);
+        mpBarImage.rectTransform.localScale = new Vector3(value, 1, 1); 
     }
 
     public void Release()

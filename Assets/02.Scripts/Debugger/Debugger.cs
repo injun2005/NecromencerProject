@@ -13,13 +13,4 @@ public class Debugger : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.A)){
-            BattleSystem.Inst.BattleRelease();
-            GameManager.Inst.CurrentPlayer.AddTeam(teamCharacter);
-            BattleSystem.Inst.BattleStart();
-        }       
-
-    }
 }
