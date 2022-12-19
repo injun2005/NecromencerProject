@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class SkillPanel : MonoBehaviour
+using UnityEngine.EventSystems;
+public class SkillPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
     private TMP_Text skillName;
@@ -49,5 +50,15 @@ public class SkillPanel : MonoBehaviour
         limitMPText.text = "";
         skillInfoText.text = "";
         skill = null;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        skillInfoPanel.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        skillInfoPanel.SetActive(false);
     }
 }

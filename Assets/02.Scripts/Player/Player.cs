@@ -35,6 +35,11 @@ public class Player : MonoBehaviour
     private int completeSelectCnt = 0;
     private Character currentActionChar;
     private Character currentActionTarget;
+    [Header("ChangeToTeam")]
+    [SerializeField]
+    private int useMP;
+    //[SerializeField]
+    //private SelectEnemyToTeamPanel;
     private void Awake()
     {
         OnSelectTeam += SelectTeamActionChar;
@@ -88,6 +93,7 @@ public class Player : MonoBehaviour
         {
             BattleSystem.Inst.TeamCharacters.Add(teamCharacters[i]);
             teamCharacters[i].transform.position = teamUnitPos[i].position;
+            teamCharacters[i].transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
             selectTeamCharacterUIList[i].Init(teamCharacters[i]);
         }
 
@@ -126,6 +132,10 @@ public class Player : MonoBehaviour
     }
     public void SelectTarget(Character target)
     {
+        if(BattleSystem.Inst.IsEndBattle)
+        {
+            
+        }
         currentActionChar.SetTarget(target);
         if(!currentActionChar.isSelcectAction)
         {
@@ -185,5 +195,10 @@ public class Player : MonoBehaviour
     {
         character.SettingStat(character.Level + 2);
         character.isTeam = true;
-    } 
+    }
+
+    public void TargetChangeToTeam(Character target)
+    {
+
+    }
 }
