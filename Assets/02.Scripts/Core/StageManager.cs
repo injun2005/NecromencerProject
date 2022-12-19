@@ -51,7 +51,7 @@ public class StageManager : MonoSingleton<StageManager>
                 //GameManager.Inst.GameClear();
             }
             nextStage[stage - 1].SetActive(true);
-        }
+        }   
     }
 
     public void SceneStart()
@@ -60,7 +60,8 @@ public class StageManager : MonoSingleton<StageManager>
         StagesPrefabs.SetActive(true);
         Map.SetActive(false);
         //st.RandomMap();
-        BattleSystem.Inst.SetStageTrm(stageMonsterPos[stage - 1].MonsterPos);
+        BattleSystem.Inst.SetStage(stageMonsterPos[stage - 1].MonsterPos, Stages[stage - 1].MosterGroupData);
+        BattleSystem.Inst.BattleStart();
     }
 
 

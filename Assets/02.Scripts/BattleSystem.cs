@@ -23,6 +23,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<CharacterBattleUIPanel> teamBattleUIList = new List<CharacterBattleUIPanel>();
     [SerializeField]
     private List<CharacterBattleUIPanel> enemyBattleUIList = new List<CharacterBattleUIPanel>();
+    [SerializeField]
+    private List<StageDataSO> Data = new List<StageDataSO>();
 
     private List<Character> poolCharacters = new List<Character>();
     private List<Character> teamCharacters = new List<Character>();
@@ -32,13 +34,21 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<Transform> enemyTrms = new List<Transform>(); //적 위치 맞춰주기
     private Queue<Character> characterQueue = new Queue<Character>();
 
-    private List<StageDataSO> stageDataSOs = new List<StageDataSO>();
+
+    private StageManager stageManager;
 
     private bool isTurn = false;
     public bool IsTurn { get { return isTurn; } }
 
     private int teamDeathCount = 0;
     private int enemyDeathCount = 0;
+
+    public GameObject LodingScene;
+
+    #region 몬스터 그룹(스테이지 연동관련)
+    private List<MonsterGroup> CurrentMonsterGroup = new List<MonsterGroup>();
+    private int battleIdx = 0;
+    #endregion
 
     public void Awake()
     {
@@ -93,9 +103,10 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     }
     #endregion
 
-    public void SetStageTrm(List<Transform> transforms)
+    public void SetStage(List<Transform> transforms, List<MonsterGroup> mobGroupDatas)
     {
         enemyTrms = transforms;
+        CurrentMonsterGroup = mobGroupDatas;
     }
 
 
@@ -107,13 +118,10 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             Debug.Log("Player is Null");
             return;
         }
-
-
-        //스테이지에서 현재 전투 할 적 정보를 읽어온다음 여기에 넣어줘야함
-
-
-        enemyCharacters.Add(Pop("Slime", 3));
-
+        foreach(var monster in CurrentMonsterGroup[battleIdx].MosterData)
+        {
+            enemyCharacters.Add(monster);
+        }
         for (int i = 0; i < enemyCharacters.Count; i++)
         {
             enemyCharacters[i].transform.position = enemyTrms[i].position;
@@ -227,11 +235,32 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             ui.Release();
         }
     }
+
+    public void StageClear()
+    {
+        Debug.Log("스테이지 클리어");
+    }
+
+    public IEnumerator NextBattle()
+    {
+        LodingScene.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        LodingScene.SetActive(false);
+    }
+
     public void WinBattle()
     {
         EndBattle();
         Debug.Log("승리");   
-        //만약 몬스터 그룹카운트가 남지 않았다면 StageClear 그렇지 안다면 다음 배틀로 
+        //만약 몬스터 그룹카운트가 남지 않았다면 StageClear 그렇지 안다면 다음 배틀로
+        if(Data[stageManager.stage - 1].MosterGroupData.Count == 0)
+        {
+            StageClear();
+        }
+        else
+        {
+            StartCoroutine(NextBattle());
+        }
     }
 
     
