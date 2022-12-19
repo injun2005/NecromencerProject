@@ -8,10 +8,10 @@ public enum ESkillKeys// 따로 스크립트 빼는게 관리하기 좋을듯
     Fireball,
     Dash,
 }
-public class Skill : MonoBehaviour
+public abstract class Skill : MonoBehaviour
 {
     public ESkillKeys skillKey;
-    private Character character;
+    protected Character character;
 
     public int limitMP;
     public int limitLevel;
@@ -23,9 +23,6 @@ public class Skill : MonoBehaviour
     public virtual void Init(Character character)
     {
         this.character = character;
-    }    
-    public virtual void UseSkill(Character skillTarget)
-    {
-
     }
+    public abstract void UseSkill(Character skillTarget);
 }

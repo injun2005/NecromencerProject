@@ -39,7 +39,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     private bool isTurn = false;
     public bool IsTurn { get { return isTurn; } }
-
+    private bool isEndBattle = false;
+    public bool IsEndBattle { get { return isEndBattle; } }
     private int teamDeathCount = 0;
     private int enemyDeathCount = 0;
 
@@ -208,6 +209,11 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         {
             GameOver();
         }
+        else
+        {
+            return;
+        }
+        
     }
 
     public void GameOver()
@@ -252,7 +258,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     {
         EndBattle();
         Debug.Log("승리");   
-        //만약 몬스터 그룹카운트가 남지 않았다면 StageClear 그렇지 안다면 다음 배틀로
         if(Data[stageManager.stage - 1].MosterGroupData.Count == 0)
         {
             StageClear();
