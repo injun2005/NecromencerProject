@@ -38,8 +38,7 @@ public class Player : MonoBehaviour
     [Header("ChangeToTeam")]
     [SerializeField]
     private int useMP;
-    //[SerializeField]
-    //private SelectEnemyToTeamPanel;
+
     private void Awake()
     {
         OnSelectTeam += SelectTeamActionChar;
@@ -86,6 +85,15 @@ public class Player : MonoBehaviour
         HideAllSelectPanel();
         targetSelectPanel.gameObject.SetActive(true);
     }
+    public void ShowTargetPanelEndBattle()
+    {
+        HideAllSelectPanel();
+        targetSelectPanel.gameObject.SetActive(true);
+        foreach(var ui in selectTargetCharacterUIList)
+        {
+            ui.gameObject.SetActive(true);
+        }
+    }
     #endregion
     public void BattleSetting()
     {
@@ -96,7 +104,7 @@ public class Player : MonoBehaviour
             teamCharacters[i].transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
             selectTeamCharacterUIList[i].Init(teamCharacters[i]);
         }
-
+        ShowTeamPanel();
         EventManager.TriggerEvent(EEvent.StartTurn);
     }
 
@@ -199,6 +207,8 @@ public class Player : MonoBehaviour
 
     public void TargetChangeToTeam(Character target)
     {
-
+        target.ChangeToTeam();
+        //BattleSystem.Inst.
+        //다음 배틀
     }
 }

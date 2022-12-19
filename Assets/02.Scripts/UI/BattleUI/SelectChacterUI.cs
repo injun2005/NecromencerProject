@@ -9,15 +9,17 @@ public class SelectChacterUI : MonoBehaviour
     private TMP_Text characterNameText;
     [SerializeField]
     private Button selectBtn;
-
-    private Character target;
-    private Player player { get { return GameManager.Inst.CurrentPlayer; } }
     
+    private Character target;
+    public Character Target { get { return target; } }
+    private Player player { get { return GameManager.Inst.CurrentPlayer; } }
+    private bool isDead = false;
     public void Init(Character character)
     {
         target = character;
         characterNameText.text = character.characterName;
         selectBtn.onClick?.AddListener(SelectChacter);
+        isDead = false;
     }
     
     public void SelectChacter()
@@ -28,4 +30,9 @@ public class SelectChacterUI : MonoBehaviour
             player.OnSelectTarget?.Invoke(target);
     }
 
+    public void Dead()
+    {
+        isDead = true;
+        gameObject.SetActive(false);
+    }
 }

@@ -122,7 +122,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             enemyCharacters[i].transform.position = enemyTrms[i].position;
             currentPlayer.selectTargetCharacterUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
-
         }
         currentPlayer.BattleSetting();
         for (int i = 0; i < teamCharacters.Count; i++)
@@ -198,6 +197,13 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         else
         {
             enemyDeathCount++;
+            foreach(var ui in currentPlayer.selectTargetCharacterUIList)
+            {
+                if (ui.Target == character)
+                {
+                    ui.Dead();
+                }
+            }
         }
         CheckEndBattle();
     }
@@ -248,7 +254,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void WinBattle()
     {
         EndBattle();
-        Debug.Log("승리");   
+        Debug.Log("승리");
+        GameManager.Inst.CurrentPlayer.ShowTargetPaenl();
         //만약 몬스터 그룹카운트가 남지 않았다면 StageClear 그렇지 안다면 다음 배틀로 
         
     }
