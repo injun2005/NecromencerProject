@@ -105,6 +105,7 @@ MonoBehaviour:
   statData: {fileID: 11400000, guid: b32244becce7240489357fd25b55347c, type: 2}
   maxMP: 0
   maxHP: 0
+  characterType: 1
   skillList:
   - {fileID: 1774001687}
   - {fileID: 1774001686}

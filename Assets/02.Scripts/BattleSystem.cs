@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using UnityRandom = UnityEngine.Random;
 [Serializable]
 public struct monsterPoolData
 {
@@ -24,7 +24,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     [SerializeField]
     private List<CharacterBattleUIPanel> enemyBattleUIList = new List<CharacterBattleUIPanel>();
     [SerializeField]
-    private List<StageDataSO> Data = new List<StageDataSO>();
 
     private List<Character> poolCharacters = new List<Character>();
     private List<Character> teamCharacters = new List<Character>();
@@ -61,11 +60,11 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
 
     #region PoolSystem
-    public Character Pop(string characterName, int level) // InBattle
+    public Character Pop(ECharacterType characterName, int level) // InBattle
     {
         foreach (Character character in poolCharacters)
         {
-            if (characterName == character.characterName)
+            if (characterName == character.characterType)
             {
                 character.Init(level);
                 character.gameObject.SetActive(true);
@@ -119,22 +118,27 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             Debug.Log("Player is Null");
             return;
         }
-        foreach(var monster in CurrentMonsterGroup[battleIdx].MosterData)
+        GameManager.Inst.CurrentPlayer.AddTeam(Pop(ECharacterType.Slime, 5));
+
+        foreach (var monster in CurrentMonsterGroup[battleIdx].MosterDatas)
         {
-            enemyCharacters.Add(monster);
+            Character character = Pop(monster.characterType, UnityRandom.Range(monster.minLevel, monster.maxLevel + 1));
+            enemyCharacters.Add(character);
         }
         for (int i = 0; i < enemyCharacters.Count; i++)
         {
             enemyCharacters[i].transform.position = enemyTrms[i].position;
             currentPlayer.selectTargetCharacterUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
-            
         }
+
         currentPlayer.BattleSetting();
         for(int i = 0; i < teamCharacters.Count; i++)
         {
+            Debug.Log("1");
             teamBattleUIList[i].Init(teamCharacters[i]);
         }
+
     }
 
     public void StartTurn(object dummyParam) 
@@ -258,7 +262,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     {
         EndBattle();
         Debug.Log("½Â¸®");   
-        if(Data[stageManager.stage - 1].MosterGroupData.Count == 0)
+        if(CurrentMonsterGroup.Count == 0)
         {
             StageClear();
         }

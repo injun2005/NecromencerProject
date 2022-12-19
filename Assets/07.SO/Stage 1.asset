@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Stage 1
   m_EditorClassIdentifier: 
   MosterGroupData:
-  - MosterData:
-    - {fileID: 1774001683, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
-  - MosterData:
-    - {fileID: 1774001683, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
+  - MosterDatas:
+    - characterType: 1
+      minLevel: 1
+      maxLevel: 5
   Level: 1
   RandomLevelOffset: 1
   Compensation: 11

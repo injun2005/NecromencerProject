@@ -2001,7 +2001,8 @@ MonoBehaviour:
   - {fileID: 3917423245336486476}
   - {fileID: 3917423245892035317}
   - {fileID: 3917423245046237212}
-  aiSystem: {fileID: 7870877006548225787}
+  Data: []
+  LodingScene: {fileID: 0}
 --- !u!1 &3917423245489520940
 GameObject:
   m_ObjectHideFlags: 0
@@ -8695,7 +8696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4885079432260988, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
       propertyPath: m_RootOrder

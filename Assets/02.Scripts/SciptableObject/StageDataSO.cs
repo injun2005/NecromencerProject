@@ -5,9 +5,16 @@ using UnityEngine;
 [Serializable]
 public struct MonsterGroup
 {
-    public List<Character> MosterData; //몬스터 데이터
+    public List<MonsterData> MosterDatas; //몬스터 데이터
 };
 
+[Serializable]
+public struct MonsterData
+{
+    public ECharacterType characterType;
+    public int minLevel;
+    public int maxLevel;
+}
 [CreateAssetMenu(menuName = "SO/Stat/StageDataSO")]
 
 public class StageDataSO : ScriptableObject
