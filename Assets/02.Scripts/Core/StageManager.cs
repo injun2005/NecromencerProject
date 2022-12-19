@@ -18,18 +18,15 @@ public struct StageMonsterPos
 public class StageManager : MonoSingleton<StageManager>
 {
     [SerializeField]
-    List<StageDataSO> Stages = new List<StageDataSO>();
-    public GameObject StagesPrefabs;
+    private List<StageDataSO> stages = new List<StageDataSO>();
+
+    public List<StageDataSO>StageList { get { return stages; } }
+
+    [SerializeField]
+    private GameObject StagesPrefabs;
     [SerializeField]
     private List<StageMonsterPos> stageMonsterPos = new List<StageMonsterPos>();
     public GameObject Map;
-
-
-    RandomStage st;
-
-    //public List<StageArea> areaList;
-
-    //private Dictionary<EStageArea, StageArea> E;
 
 
     public int stage = 1;
@@ -43,16 +40,19 @@ public class StageManager : MonoSingleton<StageManager>
 
     public void NextStage()
     {
-        if (Stages[stage - 1].MosterGroupData.Count == 0)
+        if (stages[stage - 1].MosterGroupData.Count == 0)
         {
             stage++;
-            if(stage > Stages.Count)
+            if(stage > stages.Count)
             {
                 //GameManager.Inst.GameClear();
             }
             nextStage[stage - 1].SetActive(true);
         }   
     }
+
+
+
 
     public void SceneStart()
     {
