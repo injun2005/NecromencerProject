@@ -137,11 +137,11 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             currentPlayer.changeToTeamPanelUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
         }
-
         currentPlayer.BattleSetting();
 
         for(int i = 0; i < teamCharacters.Count; i++)
         {
+
             teamBattleUIList[i].Init(teamCharacters[i]);
         }
 
@@ -255,8 +255,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         teamCharacters.Clear();
         teamDeathCount = 0;
 
-        EventManager.TriggerEvent(EEvent.ReleaseBattle);
-
         foreach (CharacterBattleUIPanel ui in enemyBattleUIList)
         {
             ui.Release();
@@ -271,7 +269,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void StageClear()
     {
         Debug.Log("스테이지 클리어");
-        
     }
     public void NextBattle()
     {
@@ -280,9 +277,9 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public IEnumerator NextBattleCoroutine()
     {
         Debug.Log("함수 실행 nextBattle");
-        LodingScene.SetActive(true);
+        LodingScene?.SetActive(true);
         yield return new WaitForSeconds(2f);
-        LodingScene.SetActive(false);
+        LodingScene?.SetActive(false);
         BattleStart();
     }
 

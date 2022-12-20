@@ -98,7 +98,6 @@ public class Player : MonoBehaviour
     public void ShowTargetPanelEndBattle()
     {
         HideAllSelectPanel();
-        Debug.Log("ShowPanel");
         changeToTeamPanel.gameObject.SetActive(true);
     }
     #endregion
@@ -106,12 +105,14 @@ public class Player : MonoBehaviour
     {
         for (int i= 0; i< teamCharacters.Count; i++)
         {
+            Debug.Log("team" + i + " " + teamCharacters[i].characterName + teamCharacters[i].Level);
             BattleSystem.Inst.TeamCharacters.Add(teamCharacters[i]);
             teamCharacters[i].transform.position = teamUnitPos[i].position;
             teamCharacters[i].transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
             selectTeamCharacterUIList[i].Init(teamCharacters[i]);
         }
         ShowTeamPanel();
+
         EventManager.TriggerEvent(EEvent.StartTurn);
     }
 
@@ -209,10 +210,8 @@ public class Player : MonoBehaviour
         if(playerMp - useMP >= 0)
         {
             playerMp -= useMP;
-            character.SettingStat(character.Level + 2);
-            character.isTeam = true;
             AddTeam(character);
-            HideAllSelectPanel();
+            HideAllSelectPanel(); 
             BattleSystem.Inst.CheckNextBattle();
         }
     }
