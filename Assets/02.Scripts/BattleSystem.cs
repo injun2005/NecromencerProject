@@ -32,7 +32,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<Character> enemyCharacters = new List<Character>();
     private Player currentPlayer { get { return GameManager.Inst.CurrentPlayer; } }
     private List<Transform> enemyTrms = new List<Transform>(); //적 위치 맞춰주기
-
+    private StageManager stageManager;
 
     private bool isTurn = false;
     public bool IsTurn { get { return isTurn; } }
@@ -42,6 +42,9 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private int enemyDeathCount = 0;
 
     public GameObject LodingScene;
+
+    public GameObject StagesPrefabs;
+    public GameObject Map;
 
     #region 몬스터 그룹(스테이지 연동관련)
     private List<MonsterGroup> CurrentMonsterGroup = new List<MonsterGroup>();
@@ -268,12 +271,17 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void StageClear()
     {
+        StagesPrefabs.SetActive(false);
+        Map.SetActive(true);
         Debug.Log("스테이지 클리어");
     }
+
+
     public void NextBattle()
     {
         StartCoroutine(NextBattleCoroutine());
     }
+
     public IEnumerator NextBattleCoroutine()
     {
         Debug.Log("함수 실행 nextBattle");

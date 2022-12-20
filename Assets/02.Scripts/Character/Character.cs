@@ -17,6 +17,12 @@ public enum ECharacterType
     None,
     Slime,
     Bomb,
+    Shell,
+    TurtleShell,
+    Dragon,
+    Snake,
+    Poison,
+    Blossom,
     Count
 }
 public class Character : MonoBehaviour

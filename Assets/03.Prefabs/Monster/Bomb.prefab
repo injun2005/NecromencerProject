@@ -473,10 +473,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillKey: 3
-  limitMP: 0
-  limitLevel: 0
+  limitMP: 10
+  limitLevel: 1
   skillInfo: 
-  SkillEffect: {fileID: 100010, guid: bf6ce3cd3c47ff64cb9bcdfc16964bd6, type: 3}
+  SkillEffect: {fileID: 114000013388857912, guid: bf6ce3cd3c47ff64cb9bcdfc16964bd6, type: 3}
 --- !u!1 &7037138832937157947
 GameObject:
   m_ObjectHideFlags: 0

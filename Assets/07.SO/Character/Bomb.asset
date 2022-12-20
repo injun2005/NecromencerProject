@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Bomb
   maxHP: 20
   maxMP: 20
-  AD: 6
+  AD: 3
   speed: 4
   defence: 1
   upHP: 5
