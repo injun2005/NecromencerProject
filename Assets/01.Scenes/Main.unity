@@ -708,11 +708,6 @@ Transform:
   m_Father: {fileID: 2079483091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 34.5, y: 145, z: 0}
---- !u!1 &1769152267 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1769152267, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
-  m_PrefabInstance: {fileID: 520528828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1774001683 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3917423245737131048, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
@@ -768,10 +763,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3917423245476591488, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
-      propertyPath: LodingScene
-      value: 
-      objectReference: {fileID: 1769152267}
     - target: {fileID: 3917423245535872896, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -819,10 +810,6 @@ PrefabInstance:
     - target: {fileID: 3917423245535872903, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
       propertyPath: m_Name
       value: BattleScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 3917749199705530731, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
