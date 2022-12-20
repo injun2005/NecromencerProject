@@ -7,6 +7,7 @@ public enum ESkillKeys// 따로 스크립트 빼는게 관리하기 좋을듯
     None,
     Fireball,
     Dash,
+    Boom,
 }
 public abstract class Skill : MonoBehaviour
 {

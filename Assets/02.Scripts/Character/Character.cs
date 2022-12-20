@@ -16,7 +16,7 @@ public enum ECharacterType
 {
     None,
     Slime,
-
+    Bomb,
     Count
 }
 public class Character : MonoBehaviour

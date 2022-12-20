@@ -34,8 +34,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<Transform> enemyTrms = new List<Transform>(); //적 위치 맞춰주기
 
 
-    private StageManager stageManager;
-
     private bool isTurn = false;
     public bool IsTurn { get { return isTurn; } }
     private bool isEndBattle = false;
@@ -283,7 +281,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     {
         Debug.Log("함수 실행 nextBattle");
         LodingScene.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         LodingScene.SetActive(false);
         BattleStart();
     }
@@ -291,7 +289,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void WinBattle()
     {
         Debug.Log("승리");   
-        if(enemyCharacters.Count == 0 && CurrentMonsterGroup.Count == 0)
         isEndBattle = true;
         GameManager.Inst.CurrentPlayer.ShowTargetPanelEndBattle();
     }
