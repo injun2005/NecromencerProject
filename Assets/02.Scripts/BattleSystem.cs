@@ -126,6 +126,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             return;
         }
 
+        enemyCharacters.Clear();
         foreach (var monster in CurrentMonsterGroup[battleIdx].MosterDatas)
         {
             Character character = Pop(monster.characterType, UnityRandom.Range(monster.minLevel, monster.maxLevel + 1));
