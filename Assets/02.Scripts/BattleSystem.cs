@@ -262,7 +262,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     {
         EndBattle();
         Debug.Log("½Â¸®");   
-        if(CurrentMonsterGroup.Count == 0)
+        if(enemyCharacters.Count == 0 && CurrentMonsterGroup.Count == 0)
         {
             StageClear();
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 [Serializable]
 public class StageArea
@@ -32,10 +33,13 @@ public class StageManager : MonoSingleton<StageManager>
     public int stage = 1;
     public GameObject[] nextStage;
 
+    public TextMeshProUGUI text;
+
 
     void Update()
     {
         Cheat();
+        text.text = "현재 :" + stage + " 스테이지";
     }
 
     public void NextStage()
