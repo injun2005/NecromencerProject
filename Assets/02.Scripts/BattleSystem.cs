@@ -288,7 +288,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void WinBattle()
     {
-        Debug.Log("Win");
+        Debug.Log("½Â¸®");   
+        if(enemyCharacters.Count == 0 && CurrentMonsterGroup.Count == 0)
         isEndBattle = true;
         GameManager.Inst.CurrentPlayer.ShowTargetPanelEndBattle();
     }
