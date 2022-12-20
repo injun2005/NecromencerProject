@@ -1242,6 +1242,14 @@ PrefabInstance:
       value: "\uBE60\uB978\uC18D\uB3C4\uB85C \uB3CC\uC9C4\uD574 \uC801\uACFC \uC2A4\uD53C\uB4DC
         \uCC28\uC774\n\uB9CC\uD07C \uCD94\uAC00\uD53C\uD574\uB97C \uC900\uB2E4"
       objectReference: {fileID: 0}
+    - target: {fileID: 3917423245737131052, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
+      propertyPath: SkillEffect
+      value: 
+      objectReference: {fileID: 100010, guid: c98be9ff8d0b99c4f8857faf470634cf, type: 3}
+    - target: {fileID: 3917423245737131053, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
+      propertyPath: SkillEffect
+      value: 
+      objectReference: {fileID: 100008, guid: 6ff1350c2a91520479532984ca642474, type: 3}
     - target: {fileID: 3917423245892035318, guid: a054aa1924cc6184f904776e21888bb5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
