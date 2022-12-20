@@ -174,10 +174,4 @@ public class Character : MonoBehaviour
     {
         isTeam = true;
     }
-    
-    public void ChangeToTeam()
-    {
-        isTeam = true;
-        Init(Level + 2);
-    }
 }

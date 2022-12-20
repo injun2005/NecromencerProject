@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public  Action<Character> OnSelectTeam;
@@ -23,14 +23,18 @@ public class Player : MonoBehaviour
     private GameObject actionSelectPanel;
     [SerializeField]
     private SelecetSkillPanel skillSelectPanel;
+    [SerializeField]
+    private GameObject changeToTeamPanel;
     [HideInInspector]
     public List<Character> teamCharacters = new List<Character>();
     [SerializeField]
     private List<SelectChacterUI> selectTeamCharacterUIList = new List<SelectChacterUI>();
     public List<SelectChacterUI> selectTargetCharacterUIList = new List<SelectChacterUI>();
+    public List<ChangeToTeamPanel> changeToTeamPanelUIList = new List<ChangeToTeamPanel>();
     [SerializeField]
     public List<Transform> teamUnitPos = new List<Transform>();
-
+    [SerializeField]
+    private Button changeToTeamNextBtn;
     public bool isDead;
     private int completeSelectCnt = 0;
     private Character currentActionChar;
@@ -45,7 +49,7 @@ public class Player : MonoBehaviour
         OnSelectSkill += SelectSkillIdx;
         OnSelectAction += SelectActionIdx;
         OnSelectTarget += SelectTarget;
-
+        changeToTeamNextBtn.onClick.AddListener(PassTeamCharacter);
         Init();
     }
     private void Update()
@@ -59,10 +63,12 @@ public class Player : MonoBehaviour
     #region Panel Hide/Show
     public void HideAllSelectPanel()
     {
+        Debug.Log("Hide");
         teamSelectPanel.gameObject.SetActive(false);
         targetSelectPanel.gameObject.SetActive(false);
         actionSelectPanel.gameObject.SetActive(false);
         skillSelectPanel.gameObject.SetActive(false);
+        changeToTeamPanel.gameObject.SetActive(false);
     }
     public void ShowTeamPanel()
     {
@@ -80,6 +86,10 @@ public class Player : MonoBehaviour
         skillSelectPanel.SetSkillPanels(currentActionChar.skillList);
         skillSelectPanel.gameObject.SetActive(true);
     }
+    public void DeadTeamCharacter(Character character)
+    {
+        teamCharacters.Remove(character);
+    }
     public void ShowTargetPaenl()
     {
         HideAllSelectPanel();
@@ -88,11 +98,8 @@ public class Player : MonoBehaviour
     public void ShowTargetPanelEndBattle()
     {
         HideAllSelectPanel();
-        targetSelectPanel.gameObject.SetActive(true);
-        foreach(var ui in selectTargetCharacterUIList)
-        {
-            ui.gameObject.SetActive(true);
-        }
+        Debug.Log("ShowPanel");
+        changeToTeamPanel.gameObject.SetActive(true);
     }
     #endregion
     public void BattleSetting()
@@ -110,6 +117,7 @@ public class Player : MonoBehaviour
 
     public void StartTurn()
     {
+        if (BattleSystem.Inst.IsEndBattle) return;
         completeSelectCnt = 0;
         foreach(Character character in teamCharacters)
         {
@@ -140,10 +148,6 @@ public class Player : MonoBehaviour
     }
     public void SelectTarget(Character target)
     {
-        if(BattleSystem.Inst.IsEndBattle)
-        {
-            
-        }
         currentActionChar.SetTarget(target);
         if(!currentActionChar.isSelcectAction)
         {
@@ -189,6 +193,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            if(!BattleSystem.Inst.IsEndBattle)
             ShowTeamPanel();   
         }
     }
@@ -201,14 +206,20 @@ public class Player : MonoBehaviour
 
     public void SetTeamChacter(Character character)
     {
-        character.SettingStat(character.Level + 2);
-        character.isTeam = true;
+        if(playerMp - useMP >= 0)
+        {
+            playerMp -= useMP;
+            character.SettingStat(character.Level + 2);
+            character.isTeam = true;
+            AddTeam(character);
+            HideAllSelectPanel();
+            BattleSystem.Inst.CheckNextBattle();
+        }
     }
-
-    public void TargetChangeToTeam(Character target)
+    public void PassTeamCharacter()
     {
-        target.ChangeToTeam();
-        //BattleSystem.Inst.
-        //다음 배틀
+        HideAllSelectPanel();
+        BattleSystem.Inst.CheckNextBattle();
+
     }
 }

@@ -36,10 +36,9 @@ public class CharacterBattleUIPanel : MonoBehaviour
     private void HPBarValueChange(int hp)
     {
         float value = (float)hp / maxHP;
-        Debug.Log($"HPBarValue {hp} {value}");
-        if(hp < 0.0f)
+        if(hp < 0)
         {
-            hp = 0;
+            value = 0;
         }
         hpBarImage.rectTransform.localScale = new Vector3(value, 1, 1);
     }
@@ -47,9 +46,9 @@ public class CharacterBattleUIPanel : MonoBehaviour
     private void MPBarValueChange(int mp)
     {
         float value = (float)mp / maxMP;
-        if (mp < 0.0f)
+        if (mp < 0)
         {
-            mp = 0;
+            value = 0;
         }
         mpBarImage.rectTransform.localScale = new Vector3(value, 1, 1); 
     }

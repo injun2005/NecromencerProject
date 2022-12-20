@@ -24,6 +24,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     [SerializeField]
     private List<CharacterBattleUIPanel> enemyBattleUIList = new List<CharacterBattleUIPanel>();
     [SerializeField]
+    private AISystem aiSystem;
 
     private List<Character> poolCharacters = new List<Character>();
     private List<Character> teamCharacters = new List<Character>();
@@ -31,7 +32,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private List<Character> enemyCharacters = new List<Character>();
     private Player currentPlayer { get { return GameManager.Inst.CurrentPlayer; } }
     private List<Transform> enemyTrms = new List<Transform>(); //적 위치 맞춰주기
-    private Queue<Character> characterQueue = new Queue<Character>();
 
 
     private StageManager stageManager;
@@ -56,6 +56,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
         EventManager.StartListening(EEvent.StartTurn, StartTurn);
         EventManager.StartListening(EEvent.EndTrun, EndTurn);
+
     }
 
 
@@ -105,20 +106,25 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void SetStage(List<Transform> transforms, List<MonsterGroup> mobGroupDatas)
     {
+        battleIdx = 0;
         enemyTrms = transforms;
         CurrentMonsterGroup = mobGroupDatas;
+
+        GameManager.Inst.CurrentPlayer.AddTeam(Pop(ECharacterType.Slime, 5));
+
+        BattleStart();
     }
 
 
     public void BattleStart()
     {
+        isEndBattle = false;
         Debug.Log("StartBattle");
         if(currentPlayer == null)
         {
             Debug.Log("Player is Null");
             return;
         }
-        GameManager.Inst.CurrentPlayer.AddTeam(Pop(ECharacterType.Slime, 5));
 
         foreach (var monster in CurrentMonsterGroup[battleIdx].MosterDatas)
         {
@@ -129,13 +135,14 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         {
             enemyCharacters[i].transform.position = enemyTrms[i].position;
             currentPlayer.selectTargetCharacterUIList[i].Init(enemyCharacters[i]);
+            currentPlayer.changeToTeamPanelUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
         }
 
         currentPlayer.BattleSetting();
+
         for(int i = 0; i < teamCharacters.Count; i++)
         {
-            Debug.Log("1");
             teamBattleUIList[i].Init(teamCharacters[i]);
         }
 
@@ -167,7 +174,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
         foreach (Character character in list)
         {
-            if (character.gameObject.activeSelf)
+            if (!character.isDead)
             {
                 character.DoBehaviour();
                 yield return new WaitUntil(() => { return !character.isAction; });
@@ -181,7 +188,16 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private void EndTurn(object dummyParam)
     {
         isTurn = false;
-
+        foreach (Character character in enemyCharacters)
+        {
+            if (!character.isDead)
+            {
+                aiSystem.SetCurrentCharacter(character);
+                Character target = teamCharacters[UnityRandom.Range(0, teamCharacters.Count)];
+                aiSystem.SetTarget(target);
+                aiSystem.RandomAction();
+            }
+        }
         StartCoroutine(EndTurnCorutine());
     }
 
@@ -190,6 +206,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         if(character.isTeam)
         {
             teamDeathCount++;
+            GameManager.Inst.CurrentPlayer.DeadTeamCharacter(character);
             if(teamCharacters.Count >= teamDeathCount)
             {
                 currentPlayer.isDead = true;
@@ -212,35 +229,34 @@ public class BattleSystem : MonoSingleton<BattleSystem>
 
     public void CheckEndBattle()
     {
-        if(enemyDeathCount >= enemyCharacters.Count)
+        if (enemyDeathCount >= enemyCharacters.Count)
         {
+            BattleRelease();
             WinBattle();
+
         }
         else if(teamDeathCount >= teamCharacters.Count)
         {
+            BattleRelease();
             GameOver();
         }
         else
         {
             return;
         }
-        
     }
 
     public void GameOver()
     {
-        EndBattle();
         GameManager.Inst.GameOver();
     }
 
-    private void EndBattle()
-    {
-        BattleRelease();
-    }
     public void BattleRelease()
     {
         teamCharacters.Clear();
         teamDeathCount = 0;
+
+        EventManager.TriggerEvent(EEvent.ReleaseBattle);
 
         foreach (CharacterBattleUIPanel ui in enemyBattleUIList)
         {
@@ -256,30 +272,38 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void StageClear()
     {
         Debug.Log("스테이지 클리어");
+        
     }
-
-    public IEnumerator NextBattle()
+    public void NextBattle()
     {
+        StartCoroutine(NextBattleCoroutine());
+    }
+    public IEnumerator NextBattleCoroutine()
+    {
+        Debug.Log("함수 실행 nextBattle");
         LodingScene.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         LodingScene.SetActive(false);
+        BattleStart();
     }
 
     public void WinBattle()
     {
-        EndBattle();
-        GameManager.Inst.CurrentPlayer.ShowTargetPaenl();
-
-        Debug.Log("승리");   
-        if(CurrentMonsterGroup.Count == 0)
+        Debug.Log("Win");
+        isEndBattle = true;
+        GameManager.Inst.CurrentPlayer.ShowTargetPanelEndBattle();
+    }
+    public void CheckNextBattle()
+    {
+        Debug.Log("Check");
+        battleIdx++;
+        if (battleIdx >= CurrentMonsterGroup.Count)
         {
             StageClear();
         }
         else
         {
-            StartCoroutine(NextBattle());
+            NextBattle();
         }
     }
-
-    
 }
