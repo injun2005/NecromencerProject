@@ -214,10 +214,11 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         {
             teamDeathCount++;
             GameManager.Inst.CurrentPlayer.DeadTeamCharacter(character);
-            if(teamCharacters.Count < teamDeathCount)
+            if (teamCharacters.Count < teamDeathCount)
             {
                 currentPlayer.isDead = true;
             }
+
         }
         else
         {
