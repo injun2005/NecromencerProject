@@ -110,6 +110,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     public void SetStage(List<Transform> transforms, List<MonsterGroup> mobGroupDatas)
     {
         battleIdx = 0;
+        enemyCharacters.Clear();
+        enemyDeathCount = 0;
         enemyTrms = transforms;
         CurrentMonsterGroup = mobGroupDatas;
 
@@ -128,6 +130,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         }
 
         enemyCharacters.Clear();
+        enemyDeathCount = 0;
         foreach (var monster in CurrentMonsterGroup[battleIdx].MosterDatas)
         {
             Character character = Pop(monster.characterType, UnityRandom.Range(monster.minLevel, monster.maxLevel + 1));
@@ -179,7 +182,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             if (!character.isDead)
             {
                 character.DoBehaviour();
-                yield return new WaitUntil(() => { return !character.isAction; });
+                //yield return new WaitUntil(() => { return !character.isAction; });
+                yield return new WaitForSeconds(0.2f);
             }
         }
 

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25f31ae8d42c3b44bf1e0d873fdfb42, type: 3}
   m_Name: Stage 4
   m_EditorClassIdentifier: 
-  MosterGroupData: []
+  MosterGroupData:
+  - MosterDatas:
+    - characterType: 10
+      minLevel: 70
+      maxLevel: 70
   Level: 4
   RandomLevelOffset: 0
   Compensation: 0

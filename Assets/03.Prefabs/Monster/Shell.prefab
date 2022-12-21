@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 545682315341920650}
   - component: {fileID: 2742014231335734701}
   - component: {fileID: -1662568062362554743}
+  - component: {fileID: 2156051802112443477}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -943,6 +944,22 @@ MonoBehaviour:
   limitLevel: 12
   skillInfo: "\uBE60\uB978\uC18D\uB3C4\uB85C \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574\n20
     + 100%AD\uD53C\uD574\uB97C \uC900\uB2E4"
+--- !u!114 &2156051802112443477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545682315351394890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f464fc99f4a6446b4cd98e301ac60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 5
+  limitMP: 20
+  limitLevel: 12
+  skillInfo: "\uB2E8\uB2E8\uD574\uC9C0\uAE30!\uB2E8\uB2E8\uD574\uC9C0\uAE30!\uB2E8\uB2E8\uD574\uC9C0\uAE30!"
 --- !u!1 &545682315351394892
 GameObject:
   m_ObjectHideFlags: 0

@@ -1116,6 +1116,7 @@ GameObject:
   - component: {fileID: 902391672072293958}
   - component: {fileID: 902391672081818022}
   - component: {fileID: -2697879010587927779}
+  - component: {fileID: 4957767108757761141}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Untagged
@@ -1196,7 +1197,8 @@ MonoBehaviour:
   maxMP: 0
   maxHP: 0
   characterType: 6
-  skillList: []
+  skillList:
+  - {fileID: 4957767108757761141}
   isTeam: 0
   isDead: 0
   isSelcectAction: 0
@@ -1210,6 +1212,22 @@ MonoBehaviour:
   OnUssSkill:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4957767108757761141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902391672072327782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f281f3d11ce304a90348ce470122cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 6
+  limitMP: 20
+  limitLevel: 15
+  skillInfo: 
 --- !u!1 &902391672072327784
 GameObject:
   m_ObjectHideFlags: 0

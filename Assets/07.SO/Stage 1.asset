@@ -21,8 +21,17 @@ MonoBehaviour:
     - characterType: 3
       minLevel: 1
       maxLevel: 6
+    - characterType: 1
+      minLevel: 1
+      maxLevel: 6
   - MosterDatas:
     - characterType: 4
+      minLevel: 1
+      maxLevel: 6
+    - characterType: 3
+      minLevel: 1
+      maxLevel: 6
+    - characterType: 1
       minLevel: 1
       maxLevel: 6
   Level: 1
