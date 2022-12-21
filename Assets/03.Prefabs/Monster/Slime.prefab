@@ -137,7 +137,7 @@ MonoBehaviour:
   skillKey: 1
   limitMP: 5
   limitLevel: 1
-  skillInfo: 
+  skillInfo: "\uBE60\uC774\uC5B4\uBF48~"
 --- !u!114 &1774001687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillKey: 2
-  limitMP: 10
-  limitLevel: 1
+  limitMP: 20
+  limitLevel: 12
   skillInfo: "\uBE60\uB978\uC18D\uB3C4\uB85C \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574\n20
     + 100%AD\uD53C\uD574\uB97C \uC900\uB2E4"
 --- !u!1 &1159745215084782

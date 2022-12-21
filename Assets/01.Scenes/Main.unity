@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 2049127331}
     - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
       propertyPath: stageMonsterPos.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
       propertyPath: stageMonsterPos.Array.data[0].MonsterPos.Array.size
@@ -665,6 +665,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
       propertyPath: stageMonsterPos.Array.data[1].MonsterPos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[2].MonsterPos.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[3].MonsterPos.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
@@ -689,6 +697,30 @@ PrefabInstance:
       objectReference: {fileID: 1900232888}
     - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
       propertyPath: stageMonsterPos.Array.data[1].MonsterPos.Array.data[2]
+      value: 
+      objectReference: {fileID: 1539155441}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[2].MonsterPos.Array.data[0]
+      value: 
+      objectReference: {fileID: 1053575486}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[2].MonsterPos.Array.data[1]
+      value: 
+      objectReference: {fileID: 1900232888}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[2].MonsterPos.Array.data[2]
+      value: 
+      objectReference: {fileID: 1539155441}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[3].MonsterPos.Array.data[0]
+      value: 
+      objectReference: {fileID: 1053575486}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[3].MonsterPos.Array.data[1]
+      value: 
+      objectReference: {fileID: 1900232888}
+    - target: {fileID: 5036301112363517870, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
+      propertyPath: stageMonsterPos.Array.data[3].MonsterPos.Array.data[2]
       value: 
       objectReference: {fileID: 1539155441}
     - target: {fileID: 5036301113038637215, guid: 79175392eb08e4747bdd7e9db30846b0, type: 3}
@@ -791,6 +823,12 @@ MonoBehaviour:
     count: 5
   - objectName: bomb
     perfab: {fileID: 100010, guid: bf6ce3cd3c47ff64cb9bcdfc16964bd6, type: 3}
+    count: 5
+  - objectName: Posion
+    perfab: {fileID: 100006, guid: bf350f60afaca7e44b4533526bda51c2, type: 3}
+    count: 5
+  - objectName: Defend
+    perfab: {fileID: 100010, guid: 7f4cd52014748b049b82f29f755c1278, type: 3}
     count: 5
   tfPoolParent: {fileID: 782375771}
 --- !u!4 &782375771

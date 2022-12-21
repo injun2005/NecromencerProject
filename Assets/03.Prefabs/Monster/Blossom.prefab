@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4238509924710026423}
   - component: {fileID: 4238509924719125335}
   - component: {fileID: 7941559114066528675}
+  - component: {fileID: 6750405945982148779}
+  - component: {fileID: -553679352900577718}
   m_Layer: 0
   m_Name: Blossom
   m_TagString: Untagged
@@ -107,7 +109,9 @@ MonoBehaviour:
   maxMP: 0
   maxHP: 0
   characterType: 8
-  skillList: []
+  skillList:
+  - {fileID: -553679352900577718}
+  - {fileID: 6750405945982148779}
   isTeam: 0
   isDead: 0
   isSelcectAction: 0
@@ -121,6 +125,39 @@ MonoBehaviour:
   OnUssSkill:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6750405945982148779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238509924709601431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4231c0a98dc03ce48bcf0509a2d66395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 4
+  limitMP: 15
+  limitLevel: 8
+  skillInfo: "\uAC15\uD55C \uB3C5\uC744 \uBC1C\uC0AC\uD558\uC5EC \uC801\uC744 \uC81C\uC555\uD55C\uB2E4."
+--- !u!114 &-553679352900577718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4238509924709601431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabda89292be444439414afd2a50d88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 2
+  limitMP: 20
+  limitLevel: 12
+  skillInfo: "\uBE60\uB978\uC18D\uB3C4\uB85C \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574\n20
+    + 100%AD\uD53C\uD574\uB97C \uC900\uB2E4"
 --- !u!1 &4238509924709601473
 GameObject:
   m_ObjectHideFlags: 0
