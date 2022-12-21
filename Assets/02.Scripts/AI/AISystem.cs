@@ -39,7 +39,7 @@ public class AISystem : MonoBehaviour
 
 
         skillIdx = Random.Range(0, currentCharacter.skillList.Count);
-        if (currentCharacter.skillList[skillIdx].isCanUse && currentCharacter.skillList[skillIdx].isActive)
+        if (!currentCharacter.skillList[skillIdx].isCanUse || !currentCharacter.skillList[skillIdx].isActive)
         {
             currentCharacter.SetActionIdx(ECharacterAction.Attack);
             return;

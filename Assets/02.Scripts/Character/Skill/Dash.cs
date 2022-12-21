@@ -18,7 +18,7 @@ public class Dash : Skill
     {
         GameObject obj = ObjectPool.instance.Pop(effectName);
         obj.transform.position = transform.position;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         ObjectPool.instance.Push(effectName, obj);
 
     }
