@@ -108,6 +108,7 @@ public class Player : MonoBehaviour
             Debug.Log("team" + i + " " + teamCharacters[i].characterName + teamCharacters[i].Level);
             BattleSystem.Inst.TeamCharacters.Add(teamCharacters[i]);
             teamCharacters[i].transform.position = teamUnitPos[i].position;
+            teamCharacters[i].gameObject.SetActive(true);
             teamCharacters[i].transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
             selectTeamCharacterUIList[i].Init(teamCharacters[i]);
         }

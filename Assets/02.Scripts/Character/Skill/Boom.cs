@@ -11,7 +11,7 @@ public class Boom : Skill
     public override void UseSkill(Character skillTarget)
     {
         Debug.Log("bomb");
-        //StartCoroutine(EffectSkill());
+        StartCoroutine(EffectSkill());
         character.Attack(character.AD + 3);
     }
 

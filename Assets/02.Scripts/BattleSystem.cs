@@ -309,5 +309,9 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         {
             NextBattle();
         }
+        foreach(var enemy in enemyCharacters)
+        {
+            enemy.gameObject.SetActive(false);
+        }
     }
 }

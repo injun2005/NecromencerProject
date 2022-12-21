@@ -4,4 +4,6 @@ public enum EEvent
     StartTurn,
     EndTrun,
     ReleaseBattle,
+    ChangeBGM,
+
 }
