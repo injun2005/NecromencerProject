@@ -76,6 +76,7 @@ public class Character : MonoBehaviour
     public void SettingStat(int level)
     {
         this.level = level;
+        isDead = false;
         mp = statData.maxMP + statData.upMP * level;
         maxMP = mp;
         hp = statData.maxHP + statData.upHP * level;
