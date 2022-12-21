@@ -114,6 +114,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         CurrentMonsterGroup = mobGroupDatas;
 
         BattleStart();
+        Sound.OnPlayBGMSound?.Invoke(Sound.EBgm.BattleBgm);
     }
 
 
@@ -128,6 +129,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         }
 
         enemyCharacters.Clear();
+        enemyDeathCount = 0;
         foreach (var monster in CurrentMonsterGroup[battleIdx].MosterDatas)
         {
             Character character = Pop(monster.characterType, UnityRandom.Range(monster.minLevel, monster.maxLevel + 1));
