@@ -163,6 +163,7 @@ public class Character : MonoBehaviour
 
     public virtual void Damaged(int damage)
     {
+        if (isDead) return;
         hp -= damage;
         OnDamage.Invoke(hp);
 
