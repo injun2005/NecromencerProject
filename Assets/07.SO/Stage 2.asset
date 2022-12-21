@@ -16,27 +16,27 @@ MonoBehaviour:
   - MosterDatas:
     - characterType: 2
       minLevel: 5
-      maxLevel: 11
+      maxLevel: 9
     - characterType: 7
       minLevel: 6
-      maxLevel: 12
+      maxLevel: 10
   - MosterDatas:
     - characterType: 7
       minLevel: 7
-      maxLevel: 12
+      maxLevel: 10
     - characterType: 8
       minLevel: 8
-      maxLevel: 11
+      maxLevel: 10
   - MosterDatas:
     - characterType: 2
       minLevel: 9
-      maxLevel: 13
+      maxLevel: 11
     - characterType: 7
       minLevel: 8
-      maxLevel: 14
+      maxLevel: 11
     - characterType: 7
       minLevel: 9
-      maxLevel: 14
+      maxLevel: 11
   Level: 1
   RandomLevelOffset: 1
   Compensation: 11

@@ -15,8 +15,8 @@ MonoBehaviour:
   MosterGroupData:
   - MosterDatas:
     - characterType: 10
-      minLevel: 70
-      maxLevel: 70
+      minLevel: 30
+      maxLevel: 30
   Level: 4
   RandomLevelOffset: 0
   Compensation: 0
