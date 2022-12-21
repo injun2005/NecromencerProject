@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -222,11 +223,12 @@ public class Player : MonoBehaviour
 
     public void SetTeamChacter(Character character)
     {
-        if(teamCharacters.Count >= 3)
+        if (teamCharacters.Count >= 3)
         {
-            return;
-        } 
-        if(playerMp - useMP >= 0)
+            List<Character> list = teamCharacters.OrderBy((x) => x.HP).ToList();
+            DeadTeamCharacter(list[0]);
+        }
+        if (playerMp - useMP >= 0)
         {
             playerMp -= useMP;
             SetMana();
@@ -241,4 +243,18 @@ public class Player : MonoBehaviour
         BattleSystem.Inst.CheckNextBattle();
 
     }
+
+    public void AddMana(int a)
+    {
+        if(playerMp + a > 10)
+        {
+            playerMp = 10;
+        }
+        else
+        {
+            playerMp += a;
+        }
+        SetMana();
+    }
+
 }

@@ -302,6 +302,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     {
         Debug.Log("½Â¸®");   
         isEndBattle = true;
+        GameManager.Inst.CurrentPlayer.AddMana(2);
         GameManager.Inst.CurrentPlayer.ShowTargetPanelEndBattle();
     }
     public void CheckNextBattle()

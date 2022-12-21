@@ -54,6 +54,7 @@ public class Character : MonoBehaviour
     private ECharacterAction currentActionIdx;
     public ECharacterType characterType;
     private Character target;
+    public Character Traget { get { return target; } }
     public List<Skill> skillList;
    
     [HideInInspector] public bool isTeam = false;

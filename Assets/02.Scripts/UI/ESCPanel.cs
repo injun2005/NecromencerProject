@@ -28,7 +28,7 @@ public class ESCPanel : MonoBehaviour
     private Button closeBtn;
     public void Awake()
     {
-        continueBtn.onClick.AddListener(Exit);
+        exitBtn.onClick.AddListener(Exit);
         settingBtn.onClick.AddListener(SettingPanel);
         continueBtn.onClick.AddListener(Continue);
         closeBtn.onClick.AddListener(OnCloseSetting);
