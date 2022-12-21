@@ -1218,6 +1218,8 @@ GameObject:
   - component: {fileID: -8046181195134753516}
   - component: {fileID: -1523299205178778480}
   - component: {fileID: -4085372867652352447}
+  - component: {fileID: -3874566140662270980}
+  - component: {fileID: -9206903108289519729}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1234,7 +1236,7 @@ Transform:
   m_GameObject: {fileID: 139696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 446710}
@@ -1280,6 +1282,9 @@ MonoBehaviour:
   characterType: 10
   skillList:
   - {fileID: -1523299205178778480}
+  - {fileID: -4085372867652352447}
+  - {fileID: -3874566140662270980}
+  - {fileID: -9206903108289519729}
   isTeam: 0
   isDead: 0
   isSelcectAction: 0
@@ -1324,6 +1329,38 @@ MonoBehaviour:
   skillKey: 6
   limitMP: 20
   limitLevel: 15
+  skillInfo: 
+--- !u!114 &-3874566140662270980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f464fc99f4a6446b4cd98e301ac60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 5
+  limitMP: 20
+  limitLevel: 10
+  skillInfo: 
+--- !u!114 &-9206903108289519729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aabda89292be444439414afd2a50d88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 2
+  limitMP: 20
+  limitLevel: 10
   skillInfo: 
 --- !u!1 &139704
 GameObject:

@@ -1498,6 +1498,8 @@ GameObject:
   - component: {fileID: 476204}
   - component: {fileID: 9520220}
   - component: {fileID: 7008900098761387343}
+  - component: {fileID: 2571213991335089470}
+  - component: {fileID: -5217011679593730424}
   m_Layer: 0
   m_Name: Green
   m_TagString: Untagged
@@ -1558,7 +1560,9 @@ MonoBehaviour:
   maxMP: 0
   maxHP: 0
   characterType: 9
-  skillList: []
+  skillList:
+  - {fileID: 2571213991335089470}
+  - {fileID: -5217011679593730424}
   isTeam: 0
   isDead: 0
   isSelcectAction: 0
@@ -1572,6 +1576,38 @@ MonoBehaviour:
   OnUssSkill:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2571213991335089470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f464fc99f4a6446b4cd98e301ac60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 5
+  limitMP: 20
+  limitLevel: 10
+  skillInfo: 
+--- !u!114 &-5217011679593730424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb907ff9116f44c95daf202838629d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 1
+  limitMP: 5
+  limitLevel: 10
+  skillInfo: 
 --- !u!1 &172518
 GameObject:
   m_ObjectHideFlags: 0
