@@ -116,6 +116,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         CurrentMonsterGroup = mobGroupDatas;
 
         BattleStart();
+        Sound.OnPlayBGMSound?.Invoke(Sound.EBgm.BattleBgm);
     }
 
 

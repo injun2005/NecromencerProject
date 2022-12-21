@@ -20,7 +20,8 @@ public class GameManager : MonoSingleton<GameManager>
             return currentPlayer;
         }
     }
-
+    [SerializeField]
+    private ESCPanel escPanel;
     public void AddNewPlayer(Player player)
     {
         currentPlayer = player;
@@ -29,5 +30,25 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         Debug.Log("GameOver");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!escPanel.isOpen)
+            {
+                escPanel.OnPanel();
+            }
+            else
+            {
+                escPanel.OffPanel();
+            }
+        }
     }
 }
