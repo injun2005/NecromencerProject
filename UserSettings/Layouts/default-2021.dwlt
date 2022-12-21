@@ -73,7 +73,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: 2 by 3
+  m_LastLoadedLayoutName: 
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 2641
+  controlID: 87
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 2642
+  controlID: 23
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -218,8 +218,8 @@ MonoBehaviour:
     y: 0
     width: 344
     height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -308,9 +308,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 4479000076790000
-      m_LastClickedID: 31094
-      m_ExpandedIDs: fcedffff527900006c79000084790000
+      m_SelectedIDs: 2ce1ffff
+      m_LastClickedID: -7892
+      m_ExpandedIDs: 00eeffff3cefffff16fbffff4853000084780000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -326,7 +326,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 10}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -416,22 +416,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/02.Scripts/Camera
+    - Assets/02.Scripts/Pool
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/02.Scripts/Camera
+  - Assets/02.Scripts/Pool
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Unity\GithubDesktop\ROUNDS\NecromencerProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 08780000
-    m_LastClickedID: 30728
-    m_ExpandedIDs: 00000000887700008a7700008c7700008e77000090770000927700009477000096770000987700009a7700009c7700009e770000a0770000a2770000a4770000a6770000a8770000e677000000ca9a3b
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: d0770000
+    m_LastClickedID: 30672
+    m_ExpandedIDs: 0000000090770000927700009477000096770000987700009a7700009c7700009e770000a0770000a2770000a4770000a6770000a8770000aa770000ac770000ae770000b0770000ba77000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -459,7 +459,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000887700008a7700008c7700008e77000090770000927700009477000096770000987700009a7700009c7700009e770000a0770000a2770000a4770000a6770000a877000000ca9a3b
+    m_ExpandedIDs: 0000000090770000927700009477000096770000987700009a7700009c7700009e770000a0770000a2770000a4770000a6770000a8770000aa770000ac770000ae770000b0770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -600,7 +600,7 @@ MonoBehaviour:
       width: 1991.2671
       height: 864
     m_MinimalGUI: 1
-  m_defaultScale: 0.3638889
+  m_defaultScale: 0.38819444
   m_LastWindowPixelSize: {x: 905.75, y: 419.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -865,9 +865,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 580.56354, y: 122.744026, z: 250.3963}
+    m_Target: {x: 960, y: 540, z: 0}
     speed: 2
-    m_Value: {x: 580.56354, y: 122.744026, z: 250.3963}
+    m_Value: {x: 960, y: 540, z: -0.000012772127}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -914,13 +914,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.21451478, y: -0.16263147, z: 0.03624958, w: -0.96240383}
+    m_Target: {x: -0.18725894, y: -0.25230628, z: 0.04983656, w: -0.9480514}
     speed: 2
-    m_Value: {x: -0.2145147, y: -0.1626314, z: 0.03624957, w: -0.9624035}
+    m_Value: {x: -0.18718308, y: -0.25372687, z: 0.050117154, w: -0.94766736}
   m_Size:
-    m_Target: 567.74817
+    m_Target: 1118.0339
     speed: 2
-    m_Value: 567.74817
+    m_Value: 1117.9413
   m_Ortho:
     m_Target: 0
     speed: 2

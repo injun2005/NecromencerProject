@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fireball : Skill
 {
-    public GameObject SkillEffect;
+    private string effectName = "firball";
     public override void UseSkill(Character skillTarget)
     {
         Debug.Log("Fireball");
@@ -14,8 +14,9 @@ public class Fireball : Skill
 
     public IEnumerator EffectSkill()
     {
-        GameObject GO = Instantiate(SkillEffect,character.transform);
-        yield return new WaitForSeconds(2f);
-        Destroy(GO);
+        GameObject obj = ObjectPool.instance.Pop(effectName);
+        obj.transform.position = transform.position;
+        yield return new WaitForSeconds(2);
+        ObjectPool.instance.Push(effectName, obj);
     }
 }
