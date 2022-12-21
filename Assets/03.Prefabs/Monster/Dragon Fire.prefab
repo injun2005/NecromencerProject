@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 1464745901531056987}
   - component: {fileID: -8713860381305122794}
   - component: {fileID: 1432328724759600043}
+  - component: {fileID: -358358068268515452}
   m_Layer: 0
   m_Name: Dragon Fire
   m_TagString: Untagged
@@ -538,7 +539,7 @@ Animator:
   m_GameObject: {fileID: 1464745901521549467}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a51a6233f86af54ba15ef8961bd4f55, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -564,7 +565,9 @@ MonoBehaviour:
   maxMP: 0
   maxHP: 0
   characterType: 5
-  skillList: []
+  skillList:
+  - {fileID: 1432328724759600043}
+  - {fileID: -358358068268515452}
   isTeam: 0
   isDead: 0
   isSelcectAction: 0
@@ -594,6 +597,22 @@ MonoBehaviour:
   limitMP: 5
   limitLevel: 10
   skillInfo: "\uC6A9\uAC00\uB9AC \uBD88\uAF43 \uC29B"
+--- !u!114 &-358358068268515452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464745901521549467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f281f3d11ce304a90348ce470122cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 0
+  limitMP: 20
+  limitLevel: 10
+  skillInfo: 
 --- !u!1 &1464745901521549469
 GameObject:
   m_ObjectHideFlags: 0

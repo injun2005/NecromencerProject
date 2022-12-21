@@ -886,7 +886,7 @@ Animator:
   m_GameObject: {fileID: 545682315351394890}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd1d4b0798e4ca14d9e64f80effaf151, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -914,6 +914,7 @@ MonoBehaviour:
   characterType: 3
   skillList:
   - {fileID: -1662568062362554743}
+  - {fileID: 2156051802112443477}
   isTeam: 0
   isDead: 0
   isSelcectAction: 0
