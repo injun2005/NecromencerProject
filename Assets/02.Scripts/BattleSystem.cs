@@ -237,7 +237,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             WinBattle();
 
         }
-        else if(teamDeathCount >= teamCharacters.Count)
+        else if(GameManager.Inst.CurrentPlayer.isDead)
         {
             BattleRelease();
             GameOver();
