@@ -22,6 +22,8 @@ public class GameManager : MonoSingleton<GameManager>
     }
     [SerializeField]
     private ESCPanel escPanel;
+    [SerializeField]
+    private GameObject gameOverPanel;
     public void AddNewPlayer(Player player)
     {
         currentPlayer = player;
@@ -30,6 +32,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void GameOver()
     {
         Debug.Log("GameOver");
+        gameOverPanel.SetActive(true);
     }
 
     public void Exit()

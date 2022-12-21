@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class Player : MonoBehaviour
 {
     public  Action<Character> OnSelectTeam;
@@ -12,7 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int maxTeamCnt = 4;
     private int currentTeamCnt = 0;
-
+    [SerializeField]
+    private TMP_Text playerMPText;
     [SerializeField]
     private int playerMp;
     [SerializeField]
@@ -53,11 +55,12 @@ public class Player : MonoBehaviour
         OnSelectTarget += SelectTarget;
         changeToTeamNextBtn.onClick.AddListener(PassTeamCharacter);
         SkillBeforeBtn.onClick.AddListener(ShowActionPanel);
+        SetMana();
         Init();
     }
-    private void Update()
+    public void SetMana()
     {
-
+        playerMPText.text = $"현재마나 : {playerMp}";
     }
     public void Init()
     {
@@ -226,6 +229,7 @@ public class Player : MonoBehaviour
         if(playerMp - useMP >= 0)
         {
             playerMp -= useMP;
+            SetMana();
             AddTeam(character);
             HideAllSelectPanel(); 
             BattleSystem.Inst.CheckNextBattle();
