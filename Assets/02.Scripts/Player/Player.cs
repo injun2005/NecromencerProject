@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
     public void DeadTeamCharacter(Character character)
     {
         teamCharacters.Remove(character);
+        BattleSystem.Inst.Push(character);
         foreach (var ui in selectTeamCharacterUIList)
         {
             if (ui.Target == character)
