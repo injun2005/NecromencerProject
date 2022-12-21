@@ -163,7 +163,6 @@ public class Character : MonoBehaviour
         Debug.Log($"{characterName} hit {damage}");
         hp -= damage;
         OnDamage.Invoke(hp);
-        Debug.Log($"{hp}");
 
         if (hp <= 0)
         {

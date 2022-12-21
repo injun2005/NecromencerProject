@@ -61,6 +61,10 @@ public class StageManager : MonoSingleton<StageManager>
         StagesPrefabs.SetActive(true);
         Map.SetActive(false);
         //st.RandomMap();
+        if(stage == 1)
+        {
+            GameManager.Inst.CurrentPlayer.AddTeam(BattleSystem.Inst.Pop(ECharacterType.Slime, 5));
+        }
         BattleSystem.Inst.SetStage(stageMonsterPos[stage - 1].MonsterPos, stages[stage - 1].MosterGroupData);
     }
 

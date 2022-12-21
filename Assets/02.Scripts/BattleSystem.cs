@@ -113,8 +113,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         enemyTrms = transforms;
         CurrentMonsterGroup = mobGroupDatas;
 
-        GameManager.Inst.CurrentPlayer.AddTeam(Pop(ECharacterType.Slime, 5));
-
         BattleStart();
     }
 
@@ -211,7 +209,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         {
             teamDeathCount++;
             GameManager.Inst.CurrentPlayer.DeadTeamCharacter(character);
-            if(teamCharacters.Count >= teamDeathCount)
+            if(teamCharacters.Count < teamDeathCount)
             {
                 currentPlayer.isDead = true;
             }

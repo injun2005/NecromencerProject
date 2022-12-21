@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Fireball : Skill
 {
-    private string effectName = "firball";
+    private string effectName = "fireball";
     public override void UseSkill(Character skillTarget)
     {
+        Debug.Log("Fireball");
         StartCoroutine(EffectSkill());
         character.Attack(character.AD + 2);
     }

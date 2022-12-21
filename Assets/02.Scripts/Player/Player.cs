@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     public List<Transform> teamUnitPos = new List<Transform>();
     [SerializeField]
     private Button changeToTeamNextBtn;
+    [SerializeField]
+    private Button SkillBeforeBtn;
     public bool isDead;
     private int completeSelectCnt = 0;
     private Character currentActionChar;
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
         OnSelectAction += SelectActionIdx;
         OnSelectTarget += SelectTarget;
         changeToTeamNextBtn.onClick.AddListener(PassTeamCharacter);
+        SkillBeforeBtn.onClick.AddListener(ShowActionPanel);
         Init();
     }
     private void Update()
@@ -208,6 +211,10 @@ public class Player : MonoBehaviour
 
     public void SetTeamChacter(Character character)
     {
+        if(teamCharacters.Count >= 3)
+        {
+            return;
+        } 
         if(playerMp - useMP >= 0)
         {
             playerMp -= useMP;

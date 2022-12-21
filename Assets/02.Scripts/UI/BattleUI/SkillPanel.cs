@@ -38,6 +38,7 @@ public class SkillPanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void OnSelectSkill()
     {
+        if (skill == null) return;
         if (skill.isCanUse)
         {
             player.OnSelectSkill.Invoke(currentSkillkey);
