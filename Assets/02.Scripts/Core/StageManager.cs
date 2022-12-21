@@ -38,7 +38,11 @@ public class StageManager : MonoSingleton<StageManager>
     void Update()
     {
         Cheat();
+    }
 
+    private void Awake()
+    {
+        text.text = "현재 :" + stage + " 스테이지";
     }
 
     public void NextStage()

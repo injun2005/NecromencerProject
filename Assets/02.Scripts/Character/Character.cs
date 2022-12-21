@@ -23,6 +23,8 @@ public enum ECharacterType
     Snake,
     Poison,
     Blossom,
+    Mboss,
+    Boss,
     Count
 }
 public class Character : MonoBehaviour
@@ -135,8 +137,8 @@ public class Character : MonoBehaviour
     public virtual void Attack(int damage)
     {
         isSelcectAction = false;
-        target.Damaged(damage);
         isAction = false;
+        target.Damaged(damage);
     }
 
     public virtual void PlaySkill()
@@ -156,11 +158,11 @@ public class Character : MonoBehaviour
     public virtual void PlayDefecne()
     {
         isSelcectAction = false;
+        isAction = false;
     }
 
     public virtual void Damaged(int damage)
     {
-        Debug.Log($"{characterName} hit {damage}");
         hp -= damage;
         OnDamage.Invoke(hp);
 

@@ -847,6 +847,7 @@ GameObject:
   - component: {fileID: 95528395651247964}
   - component: {fileID: -8814813449909393808}
   - component: {fileID: -4457864808132266035}
+  - component: {fileID: 761054028353806042}
   m_Layer: 0
   m_Name: TurtleShell
   m_TagString: Untagged
@@ -935,10 +936,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillKey: 2
-  limitMP: 10
-  limitLevel: 1
+  limitMP: 20
+  limitLevel: 12
   skillInfo: "\uBE60\uB978\uC18D\uB3C4\uB85C \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574\n20
     + 100%AD\uD53C\uD574\uB97C \uC900\uB2E4"
+--- !u!114 &761054028353806042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837317425425208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f464fc99f4a6446b4cd98e301ac60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillKey: 5
+  limitMP: 20
+  limitLevel: 12
+  skillInfo: "\uB2E8\uB2E8\uD574\uC9C0\uAE30!\uB2E8\uB2E8\uD574\uC9C0\uAE30!\uB2E8\uB2E8\uD574\uC9C0\uAE30!"
 --- !u!1 &1914324128724412
 GameObject:
   m_ObjectHideFlags: 0

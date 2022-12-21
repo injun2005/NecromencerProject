@@ -20,6 +20,6 @@ public class Dash : Skill
         obj.transform.position = transform.position;
         yield return new WaitForSeconds(2f);
         ObjectPool.instance.Push(effectName, obj);
-
+        character.isAction = true;
     }
 }

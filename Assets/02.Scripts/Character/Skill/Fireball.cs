@@ -18,5 +18,6 @@ public class Fireball : Skill
         obj.transform.position = transform.position;
         yield return new WaitForSeconds(2);
         ObjectPool.instance.Push(effectName, obj);
+        character.isAction = false;
     }
 }
