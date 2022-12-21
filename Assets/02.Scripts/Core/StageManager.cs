@@ -23,8 +23,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     public List<StageDataSO>StageList { get { return stages; } }
 
-    [SerializeField]
-    private GameObject StagesPrefabs;
+    public GameObject StagesPrefabs;
     [SerializeField]
     private List<StageMonsterPos> stageMonsterPos = new List<StageMonsterPos>();
     public GameObject Map;
@@ -47,10 +46,10 @@ public class StageManager : MonoSingleton<StageManager>
         if (stages[stage - 1].MosterGroupData.Count == 0)
         {
             stage++;
-            if(stage > stages.Count)
-            {
-                //GameManager.Inst.GameClear();
-            }
+            //if(stage > stages.Count)
+            //{
+            //    //GameManager.Inst.GameClear();
+            //}
             nextStage[stage - 1].SetActive(true);
         }   
     }

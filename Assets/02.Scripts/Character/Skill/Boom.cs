@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
+
 
 public class Boom : Skill
 {
-    public GameObject SkillEffect;
+    public EffectPrefab SkillEffect;
+
     public override void UseSkill(Character skillTarget)
     {
         Debug.Log("bomb");
@@ -14,8 +17,8 @@ public class Boom : Skill
 
     public IEnumerator EffectSkill()
     {
-        GameObject GO = (GameObject)Instantiate(SkillEffect, character.transform);
+        EffectPrefab effectPrefab = Instantiate(SkillEffect, character.transform);
+        effectPrefab.EffectStart();
         yield return new WaitForSeconds(2f);
-        Destroy(GO);
     }
 }

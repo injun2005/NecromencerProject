@@ -17,6 +17,12 @@ public enum ECharacterType
     None,
     Slime,
     Bomb,
+    Shell,
+    TurtleShell,
+    Dragon,
+    Snake,
+    Poison,
+    Blossom,
     Count
 }
 public class Character : MonoBehaviour
@@ -122,8 +128,7 @@ public class Character : MonoBehaviour
     }
     public virtual void DoBehaviour()
     {
-        //isAction = true;
-        Debug.Log("임시로 꺼둔 isAction이 있습니다 확인해주세요");
+        isAction = true;
         CheckActionIdx();
     }
 
@@ -131,6 +136,7 @@ public class Character : MonoBehaviour
     {
         isSelcectAction = false;
         target.Damaged(damage);
+        isAction = false;
     }
 
     public virtual void PlaySkill()

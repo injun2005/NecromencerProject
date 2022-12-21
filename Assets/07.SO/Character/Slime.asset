@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Slime
   maxHP: 20
   maxMP: 20
-  AD: 4
+  AD: 2
   speed: 5
   defence: 1
   upHP: 5

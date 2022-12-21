@@ -14,7 +14,7 @@ public class Fireball : Skill
 
     public IEnumerator EffectSkill()
     {
-        GameObject GO = (GameObject)Instantiate(SkillEffect,character.transform);
+        GameObject GO = Instantiate(SkillEffect,character.transform);
         yield return new WaitForSeconds(2f);
         Destroy(GO);
     }
