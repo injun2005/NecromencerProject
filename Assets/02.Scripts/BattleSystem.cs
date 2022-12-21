@@ -51,6 +51,8 @@ public class BattleSystem : MonoSingleton<BattleSystem>
     private int battleIdx = 0;
     #endregion
 
+    StageManager st;
+
     public void Awake()
     {
         CreatePool();
@@ -274,6 +276,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         StagesPrefabs.SetActive(false);
         Map.SetActive(true);
         Debug.Log("스테이지 클리어");
+        StageManager.Inst.NextStage();
     }
 
 

@@ -38,20 +38,18 @@ public class StageManager : MonoSingleton<StageManager>
     void Update()
     {
         Cheat();
-        text.text = "현재 :" + stage + " 스테이지";
+
     }
 
     public void NextStage()
     {
-        if (stages[stage - 1].MosterGroupData.Count == 0)
-        {
             stage++;
+            text.text = "현재 :" + stage + " 스테이지";
             //if(stage > stages.Count)
             //{
             //    //GameManager.Inst.GameClear();
             //}
-            nextStage[stage - 1].SetActive(true);
-        }   
+            nextStage[stage - 1].SetActive(true); 
     }
 
 

@@ -22,7 +22,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     Transform tfPoolParent;
 
-    public Dictionary<string,Queue<GameObject>> objectPoolList = new Dictionary<string, Queue<GameObject>>(); 
+    public Dictionary<string, Queue<GameObject>> objectPoolList = new Dictionary<string, Queue<GameObject>>();
 
     void Awake()
     {
@@ -43,29 +43,28 @@ public class ObjectPool : MonoBehaviour
 
     void ObjectPoolState()
     {
-        if (objectInfos != null)
+
+        for (int i = 0; i < objectInfos.Length; i++)
         {
-            for (int i = 0; i < objectInfos.Length; i++)
-            {
-                objectPoolList.Add(objectInfos[i].objectName, InsertQueue(objectInfos[i]));
-            }
+            objectPoolList.Add(objectInfos[i].objectName, InsertQueue(objectInfos[i]));
         }
     }
-    public void Push(string ObjName, GameObject obj)
+    public void Push(string objName, GameObject obj)
     {
-        if(objectPoolList.ContainsKey(ObjName))
+        if (objectPoolList.ContainsKey(objName))
         {
             obj.SetActive(false);
-            objectPoolList[ObjName].Enqueue(obj);
+            objectPoolList[objName].Enqueue(obj);
+            obj.transform.SetParent(tfPoolParent);
         }
     }
 
     public GameObject Pop(string objName)
-    { 
+    {
         GameObject obj = null;
         if (objectPoolList.ContainsKey(objName))
         {
-            obj  = objectPoolList[objName].Dequeue();
+            obj = objectPoolList[objName].Dequeue();
             obj.SetActive(true);
         }
         return obj;

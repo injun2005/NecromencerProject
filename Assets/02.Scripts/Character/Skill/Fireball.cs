@@ -7,7 +7,6 @@ public class Fireball : Skill
     private string effectName = "firball";
     public override void UseSkill(Character skillTarget)
     {
-        Debug.Log("Fireball");
         StartCoroutine(EffectSkill());
         character.Attack(character.AD + 2);
     }
