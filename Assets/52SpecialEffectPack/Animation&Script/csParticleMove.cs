@@ -5,7 +5,8 @@ public class csParticleMove : MonoBehaviour
 {
     public float speed = 0.1f;
 
-	void Update () {
+    void Update () {
+        if (!gameObject.activeSelf) return;
         transform.Translate(Vector3.back * speed);
 	}
 }

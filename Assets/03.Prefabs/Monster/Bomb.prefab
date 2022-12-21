@@ -399,8 +399,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7037138832937157945}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 629e310e69885ce44a15ca55050cdbe9, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0fb40ce8da2f81044ae9e76a8705897f, type: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -459,7 +459,6 @@ MonoBehaviour:
   limitLevel: 1
   skillInfo: "\uBE60\uB978\uC18D\uB3C4\uB85C \uC801\uC5D0\uAC8C \uB3CC\uC9C4\uD574\n20
     + 100%AD\uD53C\uD574\uB97C \uC900\uB2E4"
-  SkillEffect: {fileID: 100010, guid: c98be9ff8d0b99c4f8857faf470634cf, type: 3}
 --- !u!114 &4591926416875306852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +475,6 @@ MonoBehaviour:
   limitMP: 10
   limitLevel: 1
   skillInfo: 
-  SkillEffect: {fileID: 114000013388857912, guid: bf6ce3cd3c47ff64cb9bcdfc16964bd6, type: 3}
 --- !u!1 &7037138832937157947
 GameObject:
   m_ObjectHideFlags: 0

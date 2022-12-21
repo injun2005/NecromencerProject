@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 public class Boom : Skill
 {
-    public EffectPrefab SkillEffect;
+    private string effectName = "bomb";
 
     public override void UseSkill(Character skillTarget)
     {
@@ -17,8 +17,9 @@ public class Boom : Skill
 
     public IEnumerator EffectSkill()
     {
-        EffectPrefab effectPrefab = Instantiate(SkillEffect, character.transform);
-        effectPrefab.EffectStart();
-        yield return new WaitForSeconds(2f);
+        GameObject obj = ObjectPool.instance.Pop(effectName);
+        obj.transform.position = transform.position;
+        yield return new WaitForSeconds(2);
+        ObjectPool.instance.Push(effectName, obj);
     }
 }

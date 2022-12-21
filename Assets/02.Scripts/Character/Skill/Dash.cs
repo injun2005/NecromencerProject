@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Dash : Skill
 {
-    public GameObject SkillEffect;
+    private string effectName = "dash";
     public override void UseSkill(Character skillTarget)
     {
         Debug.Log("Dash");
+
         StartCoroutine(EffectSkill());
         int addDamage = character.Speed - skillTarget.Speed > 0 ? character.Speed - skillTarget.Speed : 0;
         character.Attack(character.AD + addDamage);
@@ -15,8 +16,10 @@ public class Dash : Skill
 
     public IEnumerator EffectSkill()
     {
-        GameObject GO = (GameObject)Instantiate(SkillEffect, character.transform);
-        yield return new WaitForSeconds(2f);
-        Destroy(GO);
+        GameObject obj = ObjectPool.instance.Pop(effectName);
+        obj.transform.position = transform.position;
+        yield return new WaitForSeconds(2);
+        ObjectPool.instance.Push(effectName, obj);
+
     }
 }
