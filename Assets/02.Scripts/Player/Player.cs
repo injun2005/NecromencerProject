@@ -92,6 +92,13 @@ public class Player : MonoBehaviour
     public void DeadTeamCharacter(Character character)
     {
         teamCharacters.Remove(character);
+        foreach (var ui in selectTeamCharacterUIList)
+        {
+            if (ui.Target == character)
+            {
+                ui.Dead();
+            }
+        }
     }
     public void ShowTargetPaenl()
     {
