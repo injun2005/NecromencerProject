@@ -11,6 +11,8 @@ public class SelectChacterUI : MonoBehaviour
     private Button selectBtn;
     [SerializeField]
     private TMP_Text levelText;
+    [SerializeField]
+    private Color selectColor;
     private Character target;
     public Character Target { get { return target; } }
     private Player player { get { return GameManager.Inst.CurrentPlayer; } }
@@ -35,11 +37,19 @@ public class SelectChacterUI : MonoBehaviour
     public void SelectChacter()
     {
         if (target.isTeam)
+        {
             player.OnSelectTeam?.Invoke(target);
+            backgroundImage.color = selectColor;
+        }
         else
             player.OnSelectTarget?.Invoke(target);
     }
+    public void StartTrun()
+    {
+        backgroundImage ??= GetComponent<Image>();
+        backgroundImage.color = new Color(0.65f, 0.65f, 0.65f, 0.7f); ;
 
+    }
     public void Dead()
     {
         isDead = true;

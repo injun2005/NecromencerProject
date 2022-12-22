@@ -366,6 +366,7 @@ MonoBehaviour:
   characterNameText: {fileID: 2580927968006270526}
   selectBtn: {fileID: 7999136896153691502}
   levelText: {fileID: 5043048580917601938}
+  selectColor: {r: 0.43276414, g: 0.9150943, b: 0.16747947, a: 1}
 --- !u!114 &7999136896153691502
 MonoBehaviour:
   m_ObjectHideFlags: 0

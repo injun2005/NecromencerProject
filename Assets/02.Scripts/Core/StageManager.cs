@@ -28,7 +28,7 @@ public class StageManager : MonoSingleton<StageManager>
     private List<StageMonsterPos> stageMonsterPos = new List<StageMonsterPos>();
     public GameObject Map;
 
-
+    private bool isOnce = false;
     public int stage = 1;
     public GameObject[] nextStage;
 
@@ -65,8 +65,9 @@ public class StageManager : MonoSingleton<StageManager>
         StagesPrefabs.SetActive(true);
         Map.SetActive(false);
         //st.RandomMap();
-        if(stage == 1)
+        if (!isOnce)
         {
+            isOnce = true;
             GameManager.Inst.CurrentPlayer.AddTeam(BattleSystem.Inst.Pop(ECharacterType.Slime, 5));
         }
         BattleSystem.Inst.SetStage(stageMonsterPos[stage - 1].MonsterPos, stages[stage - 1].MosterGroupData);

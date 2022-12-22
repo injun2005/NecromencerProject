@@ -141,6 +141,10 @@ public class Player : MonoBehaviour
             character.isSelcectAction = false;
             character.isAction = false;
         }
+        foreach(var ui in selectTeamCharacterUIList)
+        {
+            ui.StartTrun();
+        }
         ShowTeamPanel();
     }
     

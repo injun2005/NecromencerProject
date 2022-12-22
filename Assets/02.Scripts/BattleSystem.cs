@@ -90,6 +90,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
         {
             enemyCharacters.Remove(character);
         }
+        character.gameObject.SetActive(false);
         poolCharacters.Add(character);
     }
 
