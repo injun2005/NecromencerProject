@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
     #endregion
     public void BattleSetting()
     {
+
         for (int i= 0; i< teamCharacters.Count; i++)
         {
             Debug.Log("team" + i + " " + teamCharacters[i].characterName + teamCharacters[i].Level);
@@ -127,6 +128,7 @@ public class Player : MonoBehaviour
             teamCharacters[i].transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
             selectTeamCharacterUIList[i].Init(teamCharacters[i]);
         }
+    
         ShowTeamPanel();
 
         EventManager.TriggerEvent(EEvent.StartTurn);

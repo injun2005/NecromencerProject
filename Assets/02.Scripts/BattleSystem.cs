@@ -138,6 +138,7 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             Character character = Pop(monster.characterType, UnityRandom.Range(monster.minLevel, monster.maxLevel + 1));
             enemyCharacters.Add(character);
         }
+        currentPlayer.BattleSetting();
         for (int i = 0; i < enemyCharacters.Count; i++)
         {
             enemyCharacters[i].transform.position = enemyTrms[i].position;
@@ -145,7 +146,6 @@ public class BattleSystem : MonoSingleton<BattleSystem>
             currentPlayer.changeToTeamPanelUIList[i].Init(enemyCharacters[i]);
             enemyBattleUIList[i].Init(enemyCharacters[i]);
         }
-        currentPlayer.BattleSetting();
 
         for(int i = 0; i < teamCharacters.Count; i++)
         {

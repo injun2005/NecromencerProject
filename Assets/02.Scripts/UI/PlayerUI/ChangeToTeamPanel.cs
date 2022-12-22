@@ -24,7 +24,13 @@ public class ChangeToTeamPanel : MonoBehaviour
         selectBtn.onClick?.AddListener(SelectChacter);
         gameObject.SetActive(true);
     }
-
+    public void Release()
+    {
+        target = null;
+        characterNameText.text = "";
+        levelText.text = "";
+        selectBtn.onClick?.RemoveListener(SelectChacter);
+    }
     public void SelectChacter()
     {
         if(!target.isTeam)
