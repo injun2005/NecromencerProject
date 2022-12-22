@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2463601796762118244}
   - component: {fileID: 2463601796762118245}
   - component: {fileID: 2463601796762118247}
+  - component: {fileID: 632379341669631257}
   m_Layer: 5
   m_Name: SkillPanel
   m_TagString: Untagged
@@ -71,8 +72,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5ed7b78422faa044695989e1108c5d63, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -98,6 +99,32 @@ MonoBehaviour:
   skillInfoText: {fileID: 2463601796935237706}
   skillInfoPanel: {fileID: 2463601798130656443}
   skillBtn: {fileID: 4831103978050236677}
+--- !u!114 &632379341669631257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2463601796762118251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19b7e2285c104f6ca47d583f3e5444f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectFactor: 0.5
+  m_Width: 0.25
+  m_Rotation: 135
+  m_Softness: 1
+  m_Brightness: 1
+  m_Gloss: 1
+  m_EffectArea: 0
+  m_Player:
+    play: 1
+    initialPlayDelay: 0
+    duration: 1
+    loop: 1
+    loopDelay: 1
+    updateMode: 0
 --- !u!1 &2463601796768966230
 GameObject:
   m_ObjectHideFlags: 0

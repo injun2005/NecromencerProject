@@ -19,6 +19,7 @@ public class Boom : Skill
     {
         GameObject obj = ObjectPool.instance.Pop(effectName);
         obj.transform.position = transform.position;
+        Sound.OnPlayEffectSound(Sound.EEffect.Boom);
         yield return new WaitForSeconds(2);
         ObjectPool.instance.Push(effectName, obj);
     }

@@ -20,6 +20,7 @@ public class Fireball : Skill
         Vector3 dir = obj.transform.position - character.Traget.transform.position;
         dir.Normalize();
         obj.transform.rotation = Quaternion.LookRotation(dir);
+        Sound.OnPlayEffectSound(Sound.EEffect.Fireball);
         yield return new WaitForSeconds(2);
         ObjectPool.instance.Push(effectName, obj);
         character.isAction = false;

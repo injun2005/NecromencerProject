@@ -15,7 +15,11 @@ public partial class Sound : MonoBehaviour
         None = -1,
         Notice = 1001,
         Damage,
-
+        Fireball,
+        Dash,
+        Boom,
+        Tail,
+        Defence,
         Count
     }
 

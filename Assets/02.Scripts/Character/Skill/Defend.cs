@@ -20,6 +20,7 @@ public class Defend : Skill
     {
         GameObject obj = ObjectPool.instance.Pop(effectName);
         obj.transform.position = transform.position;
+        Sound.OnPlayEffectSound(Sound.EEffect.Defence);
         yield return new WaitForSeconds(2);
         ObjectPool.instance.Push(effectName, obj);
     }

@@ -18,6 +18,7 @@ public class Dash : Skill
     {
         GameObject obj = ObjectPool.instance.Pop(effectName);
         obj.transform.position = transform.position;
+        Sound.OnPlayEffectSound(Sound.EEffect.Dash);
         yield return new WaitForSeconds(2f);
         ObjectPool.instance.Push(effectName, obj);
         character.isAction = true;

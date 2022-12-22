@@ -166,6 +166,7 @@ public class Character : MonoBehaviour
     {
         if (isDead) return;
         hp -= damage;
+        Sound.OnPlayEffectSound(Sound.EEffect.Damage);
         OnDamage.Invoke(hp);
 
         if (hp <= 0)
