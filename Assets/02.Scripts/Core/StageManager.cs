@@ -37,7 +37,7 @@ public class StageManager : MonoSingleton<StageManager>
 
     void Update()
     {
-        Cheat();
+
     }
 
     private void Awake()
