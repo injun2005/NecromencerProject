@@ -22,7 +22,7 @@ public abstract class Skill : MonoBehaviour
     [Multiline]
     public string skillInfo;
     public bool isActive { get { return character.Level >= limitLevel; } }
-    public bool isCanUse { get { return character.MP >= limitMP && character.Level > limitLevel; } }
+    public bool isCanUse { get { return character.MP >= limitMP && character.Level >= limitLevel; } }
     
     public virtual void Init(Character character)
     {

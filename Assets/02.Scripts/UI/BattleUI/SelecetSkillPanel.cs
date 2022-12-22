@@ -20,7 +20,6 @@ public class SelecetSkillPanel : MonoBehaviour
         skillPanelIdx = 0;
         foreach (Skill skill in charSkillList)
         {
-            Debug.Log(skill.isActive + skill.skillKey.ToString());
             if(skill.isActive)
             {
                 skillPanels[skillPanelIdx].Init(skill);
