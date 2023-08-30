@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
         if(!currentActionChar.isSelcectAction)
         {
             currentActionChar.isSelcectAction = true; 
-            completeSelectCnt++;
+            completeSelectCnt++;    
         }
 
         CheckEndTrun();
@@ -248,7 +248,7 @@ public class Player : MonoBehaviour
     {
         if(playerMp + a > 10)
         {
-            playerMp = 10;
+            playerMp = 10;  
         }
         else
         {
@@ -258,3 +258,4 @@ public class Player : MonoBehaviour
     }
 
 }
+ 
