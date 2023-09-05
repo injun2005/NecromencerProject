@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
     }
     
     public void AddTeam(Character character) 
-    {
+    {       
         if(maxTeamCnt < teamCharacters.Count)
         {
             Debug.LogError("ÆÀ¿ø ¼ö°¡ ÃÊ°úµÊ");
