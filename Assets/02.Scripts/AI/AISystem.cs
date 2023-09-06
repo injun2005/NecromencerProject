@@ -46,7 +46,4 @@ public class AISystem : MonoBehaviour
         }
         currentCharacter.SetSkillIdx(currentCharacter.skillList[skillIdx].skillKey);
     }
-
-
-
 }
