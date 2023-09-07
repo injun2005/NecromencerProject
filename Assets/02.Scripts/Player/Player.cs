@@ -179,7 +179,7 @@ public class Player : MonoBehaviour
         currentActionChar.SetActionIdx(actionIdx);
         if (actionIdx == ECharacterAction.Skill)
         {
-            ShowSkillPanel();
+            ShowSkillPanel();   
             return;
         }
         if(actionIdx == ECharacterAction.Attack)
@@ -211,7 +211,7 @@ public class Player : MonoBehaviour
         else
         {
             if(!BattleSystem.Inst.IsEndBattle)
-            ShowTeamPanel();   
+            ShowTeamPanel();
         }
     }
 
