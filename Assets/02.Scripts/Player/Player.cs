@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log($"SelectTeam {team.characterName}");
         currentActionChar = team;
-        ShowActionPanel();
+        ShowActionPanel();  
     }
     public void SelectTarget(Character target)
     {
@@ -241,7 +241,6 @@ public class Player : MonoBehaviour
     {
         HideAllSelectPanel();
         BattleSystem.Inst.CheckNextBattle();
-
     }
 
     public void AddMana(int a)
