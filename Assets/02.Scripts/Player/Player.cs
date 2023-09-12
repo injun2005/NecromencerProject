@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
             currentActionChar.isSelcectAction = true;
             completeSelectCnt++;
         }
-        CheckEndTrun();
+        CheckEndTrun(); 
     }
 
     public void SelectSkillIdx(ESkillKeys skillKey) 
