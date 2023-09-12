@@ -232,7 +232,7 @@ public class Player : MonoBehaviour
         {
             playerMp -= useMP;
             SetMana();
-            AddTeam(character);
+            AddTeam(character);     
             HideAllSelectPanel(); 
             BattleSystem.Inst.CheckNextBattle();
         }
