@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
     {
         for (int i= 0; i< teamCharacters.Count; i++)
         {
-            Debug.Log("team" + i + " " + teamCharacters[i].characterName + teamCharacters[i].Level);
+            Debug.Log("team" + i +  " " + teamCharacters[i].characterName + teamCharacters[i].Level);
             BattleSystem.Inst.TeamCharacters.Add(teamCharacters[i]);    
             teamCharacters[i].transform.position = teamUnitPos[i].position;
             teamCharacters[i].gameObject.SetActive(true);
@@ -198,7 +198,6 @@ public class Player : MonoBehaviour
     public void SelectSkillIdx(ESkillKeys skillKey) 
     {
         currentActionChar.SetSkillIdx(skillKey);
-
         ShowTargetPaenl();
     }
 
