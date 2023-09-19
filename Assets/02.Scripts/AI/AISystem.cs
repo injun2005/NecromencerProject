@@ -37,7 +37,6 @@ public class AISystem : MonoBehaviour
     {
         int cnt = currentCharacter.skillList.Count;
 
-
         skillIdx = Random.Range(0, currentCharacter.skillList.Count);
         if (!currentCharacter.skillList[skillIdx].isCanUse || !currentCharacter.skillList[skillIdx].isActive)
         {
