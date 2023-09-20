@@ -30,7 +30,6 @@ public class AISystem : MonoBehaviour
             currentCharacter.SetActionIdx(ECharacterAction.Attack);
         if (actionIdx == 2)
             currentCharacter.SetActionIdx(ECharacterAction.Skill);
-
     }
 
     public void RandomSkill()

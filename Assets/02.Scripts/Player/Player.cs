@@ -171,7 +171,6 @@ public class Player : MonoBehaviour
             currentActionChar.isSelcectAction = true; 
             completeSelectCnt++;    
         }
-
         CheckEndTrun();
     }
     public void SelectActionIdx(ECharacterAction actionIdx)
