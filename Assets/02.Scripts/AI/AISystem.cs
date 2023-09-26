@@ -13,7 +13,7 @@ public class AISystem : MonoBehaviour
     public void SetCurrentCharacter(Character character)
     {
         currentCharacter = character;
-    }
+    }   
     public void SetTarget(Character character)
     {
         target = character;

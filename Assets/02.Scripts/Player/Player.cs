@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
             return;
         }
         if(actionIdx == ECharacterAction.Attack)
-        {
+        {   
             ShowTargetPaenl();
             return;
         }
